@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Contact.class.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 15:43:17 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/10 16:42:58 by lpellier         ###   ########.fr       */
+/*   Created: 2021/06/10 16:41:16 by lpellier          #+#    #+#             */
+/*   Updated: 2021/06/10 17:59:55 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include <cctype>
-#include "Contact.class.hpp"
+#ifndef CONTACT_CLASS_HPP
+# define CONTACT_CLASS_HPP
 
-# define RED "\033[31m"
-# define BLUE "\033[34m"
-# define CYAN "\x1b[36m"
-# define RESET "\x1b[0m"
+class	Contact {
+	public:
 
+		std::string 
+			firstName, 
+			lastName, 
+			nickname, 
+			login, 
+			postalAddress, 
+			emailAddress, 
+			phoneNumber, 
+			birthdayDate, 
+			favoriteMeal, 
+			underwearColor, 
+			darkestSecret;
 
+		Contact( void );
+		~Contact( void );
+};
+
+#endif
