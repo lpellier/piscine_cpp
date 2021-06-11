@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.cpp                                  :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 16:45:19 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/10 17:54:35 by lpellier         ###   ########.fr       */
+/*   Created: 2021/06/11 11:54:53 by lpellier          #+#    #+#             */
+/*   Updated: 2021/06/11 13:30:24 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "ZombieHorde.hpp"
 
-Contact::Contact( void ) {
-}
+int		main()
+{
+	srand(time(0));
+	ZombieHorde *horde = new ZombieHorde(5);
 
-Contact::~Contact( void ) {
+	horde->announce("brainnns.. lol");
+	std::cout << std::endl;
+	delete horde;
+	exit(0);
 }

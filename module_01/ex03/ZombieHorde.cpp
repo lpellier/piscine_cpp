@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.hpp                                  :+:      :+:    :+:   */
+/*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 16:41:16 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/11 10:59:11 by lpellier         ###   ########.fr       */
+/*   Created: 2021/06/11 12:48:33 by lpellier          #+#    #+#             */
+/*   Updated: 2021/06/11 13:25:39 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_HPP
-# define CONTACT_CLASS_HPP
+#include "ZombieHorde.hpp"
 
-class	Contact {
-	public:
+ZombieHorde::ZombieHorde(int n) {
+	this->zombieNbr = n;
+	this->Horde = new Zombie[n];
+}
 
-		std::string 
-			firstName, 
-			lastName, 
-			nickname, 
-			login, 
-			postalAddress, 
-			emailAddress, 
-			phoneNumber, 
-			birthdayDate, 
-			favoriteMeal, 
-			underwearColor, 
-			darkestSecret;
-};
+ZombieHorde::~ZombieHorde() {
+	delete [] this->Horde;
+}
 
-#endif
+void	ZombieHorde::announce(std::string message) {
+	for (int i = 0; i < this->zombieNbr; i++)
+		this->Horde[i].announce(message);
+}

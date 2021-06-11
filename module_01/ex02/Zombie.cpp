@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.hpp                                  :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 16:41:16 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/11 10:59:11 by lpellier         ###   ########.fr       */
+/*   Created: 2021/06/11 11:55:41 by lpellier          #+#    #+#             */
+/*   Updated: 2021/06/11 13:12:47 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_HPP
-# define CONTACT_CLASS_HPP
+#include "Zombie.hpp"
 
-class	Contact {
-	public:
+void	Zombie::announce(std::string message) 
+{
+	std::cout << "<" << this->name << " (" << this->type << ")> " << message << std::endl;
+}
 
-		std::string 
-			firstName, 
-			lastName, 
-			nickname, 
-			login, 
-			postalAddress, 
-			emailAddress, 
-			phoneNumber, 
-			birthdayDate, 
-			favoriteMeal, 
-			underwearColor, 
-			darkestSecret;
-};
+Zombie::Zombie()
+{
+	this->name = "boyo";
+	this->type = "basic bitch";
+	this->announce("braiiiinnnnnnssss....");
+}
 
-#endif
+Zombie::~Zombie()
+{
+	this->announce("ughhhhhhhhh im dyiiiiing");
+}

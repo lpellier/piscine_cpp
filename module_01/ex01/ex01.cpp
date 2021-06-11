@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.hpp                                  :+:      :+:    :+:   */
+/*   ex01.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 16:41:16 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/11 10:59:11 by lpellier         ###   ########.fr       */
+/*   Created: 2021/06/11 11:48:27 by lpellier          #+#    #+#             */
+/*   Updated: 2021/06/11 11:50:29 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_HPP
-# define CONTACT_CLASS_HPP
+#include <iostream>
+#include <string>
 
-class	Contact {
-	public:
+void	memoryLeak() {
+	std::string*	panthere = new std::string("String panthere");
 
-		std::string 
-			firstName, 
-			lastName, 
-			nickname, 
-			login, 
-			postalAddress, 
-			emailAddress, 
-			phoneNumber, 
-			birthdayDate, 
-			favoriteMeal, 
-			underwearColor, 
-			darkestSecret;
-};
-
-#endif
+	std::cout << *panthere << std::endl;
+	delete panthere;
+}
