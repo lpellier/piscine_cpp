@@ -6,7 +6,7 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 11:55:30 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/11 12:41:23 by lpellier         ###   ########.fr       */
+/*   Updated: 2021/06/11 16:01:41 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ZombieEvent {
 public:
-	void	setZombieType(Zombie *zombie, std::string type);
-	Zombie	*newZombie(std::string name);
-	void	randomChump();
+	void	setZombieType(Zombie *zombie, std::string type) const;
+	Zombie	*newZombie(std::string name) const;
+	void	randomChump() const;
 };

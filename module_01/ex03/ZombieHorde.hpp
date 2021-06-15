@@ -6,7 +6,7 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 12:48:28 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/11 13:24:58 by lpellier         ###   ########.fr       */
+/*   Updated: 2021/06/11 16:00:19 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ class ZombieHorde {
 
 		ZombieHorde(int n);
 		~ZombieHorde();
-		void	announce(std::string message);
+		void	announce(std::string message) const;
 };

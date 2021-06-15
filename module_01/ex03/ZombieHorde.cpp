@@ -6,7 +6,7 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 12:48:33 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/11 13:25:39 by lpellier         ###   ########.fr       */
+/*   Updated: 2021/06/11 16:00:28 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ZombieHorde::~ZombieHorde() {
 	delete [] this->Horde;
 }
 
-void	ZombieHorde::announce(std::string message) {
+void	ZombieHorde::announce(std::string message) const {
 	for (int i = 0; i < this->zombieNbr; i++)
 		this->Horde[i].announce(message);
 }

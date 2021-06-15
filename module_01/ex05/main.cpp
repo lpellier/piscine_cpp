@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 11:55:24 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/11 16:01:12 by lpellier         ###   ########.fr       */
+/*   Created: 2021/06/11 18:49:02 by lpellier          #+#    #+#             */
+/*   Updated: 2021/06/11 19:04:57 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "Human.hpp"
 
-class Zombie {
-	private:
-		std::string name;
-		std::string type;
-	public:
-		Zombie();
-		~Zombie();
-		void	announce(std::string message) const;
-};
+int main() {
+	Human bob;
+	
+	
+	std::cout << bob.identify() << std::endl;
+	std::cout << bob.getBrain().identify() << std::endl;
+}
