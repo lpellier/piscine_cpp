@@ -5,31 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 11:54:53 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/11 16:02:29 by lpellier         ###   ########.fr       */
+/*   Created: 2021/10/04 15:22:45 by lpellier          #+#    #+#             */
+/*   Updated: 2021/10/04 15:28:54 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ZombieEvent.hpp"
+#include <iostream>
+#include <string>
 
-int		main() {
-	ZombieEvent	events;
-	Zombie	*notype = events.newZombie("notype man");
+int		main()
+{
+	std::string str = "HI THIS IS BRAIN";
+	std::string *stringPTR = &str;
+	std::string &stringREF = str;
 
-	events.setZombieType(notype, "typeguy");
-	notype->announce("braiiiiinnnnns.... (i got a type now dont be jealous)");
-	delete notype;
-	std::cout << std::endl;
+	std::cout << "address of string (&str)       : " << &str << std::endl;
+	std::cout << "address of string (stringPTR)  : " << stringPTR << std::endl;
+	std::cout << "address of string (&stringREF) : " << &stringREF << std::endl;
 
-	srand(time(0));
-	events.randomChump();
-	std::cout << std::endl;
-	events.randomChump();
-	std::cout << std::endl;
-	events.randomChump();
-	std::cout << std::endl;
-	events.randomChump();
-	std::cout << std::endl;
-	events.randomChump();
+	std::cout << "string (str)                   : " << str << std::endl;
+	std::cout << "pointer (*stringPTR)           : " << *stringPTR << std::endl;
+	std::cout << "reference (&stringREF)         : " << stringREF << std::endl;
 	exit(0);
 }

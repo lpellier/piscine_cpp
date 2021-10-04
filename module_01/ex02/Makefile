@@ -1,10 +1,10 @@
-NAME = replace
+NAME = test
 
-CC = lol++
+CC = clang++
 
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS = ./main.cpp
+SRCS = ./main.cpp 
 
 OBJS = $(SRCS:.c=.o)
 

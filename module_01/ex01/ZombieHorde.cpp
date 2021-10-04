@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 11:55:24 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/11 16:01:12 by lpellier         ###   ########.fr       */
+/*   Created: 2021/06/11 12:48:33 by lpellier          #+#    #+#             */
+/*   Updated: 2021/10/04 15:20:02 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "Zombie.hpp"
 
-class Zombie {
-	private:
-		std::string name;
-		std::string type;
-	public:
-		Zombie();
-		~Zombie();
-		void	announce(std::string message) const;
-};
+Zombie*		zombieHorde(int n, std::string name) {
+	Zombie *horde;
+	int i = 0;
+	
+	horde = new Zombie[n];
+	while (i < n) {
+		horde[i].setName(name);
+		i++;
+	}
+	return horde;
+}
+
+// ZombieHorde::~ZombieHorde() {
+// 	delete [] this->Horde;
+// }

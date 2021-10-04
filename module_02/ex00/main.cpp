@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 11:55:30 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/11 16:01:41 by lpellier         ###   ########.fr       */
+/*   Created: 2021/10/04 19:22:43 by lpellier          #+#    #+#             */
+/*   Updated: 2021/10/04 19:23:54 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
-#include <random>
-#include "Zombie.hpp"
+#include "Fixed.hpp"
 
-class ZombieEvent {
-public:
-	void	setZombieType(Zombie *zombie, std::string type) const;
-	Zombie	*newZombie(std::string name) const;
-	void	randomChump() const;
-};
+int		main(void) {
+	Fixed a;
+	Fixed b(a);
+	Fixed c;
+
+	c = b;
+	
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	return 0;
+}

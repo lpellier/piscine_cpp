@@ -1,34 +1,45 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 20:09:29 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/11 20:43:46 by lpellier         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "Karen.hpp"
 
-#include "HumanB.hpp"
+int	filter_to_int(std::string filter) {
+	if (!filter.compare("DEBUG"))
+		return (0);
+	else if (!filter.compare("INFO"))
+		return (1);
+	else if (!filter.compare("WARNING"))
+		return (2);
+	else if (!filter.compare("ERROR"))
+		return (3);
+	else
+		return (4);
+}
 
-int main() {
-	{
-		Weapon		club = Weapon("crude spiked club");
-
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
+int	main(int ac, char **av) {
+	Karen karen;
+	
+	if (ac > 2) {
+		std::cout << "no more than 2 arguments" << std::endl;
+		exit(0);
 	}
-	{
-		Weapon		club = Weapon("crude spiked club");
-
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
+	else if (ac == 1) {
+		std::cout << "need one argument" << std::endl;
+		exit(0);
+	}
+	std::string filter = std::string(av[1]);
+	switch (filter_to_int(filter)) {
+		case 0:
+			karen.complain("debug");
+			break;
+		case 1:
+			karen.complain("info");
+			break;
+		case 2:
+			karen.complain("warning");
+			break;
+		case 3:
+			karen.complain("error");
+			break;
+		case 4:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
 	exit(0);
 }

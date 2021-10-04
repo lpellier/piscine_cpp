@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 18:28:20 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/11 19:18:05 by lpellier         ###   ########.fr       */
+/*   Created: 2021/06/11 19:42:42 by lpellier          #+#    #+#             */
+/*   Updated: 2021/10/04 15:39:24 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#include "HumanA.hpp"
 
-Brain::Brain() {
-	std::cout << "Brain " << this->identify() << " has been instantiated." << std::endl;
-}
+class HumanB {
+private:
+	std::string const	_name;
+	Weapon 				*_weapon;
+public:
+	HumanB(std::string const name);
+	~HumanB();
 
-Brain::~Brain() {
-	std::cout << "Brain " << this->identify() << " has died" << std::endl;
-}
-
-void	*Brain::identify() const {
-	return (void *)this;
-}
+	void	attack() const;
+	void	setWeapon(Weapon &weapon);
+};

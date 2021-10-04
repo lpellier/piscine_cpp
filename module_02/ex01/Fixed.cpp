@@ -6,7 +6,7 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 16:45:50 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/16 11:36:39 by lpellier         ###   ########.fr       */
+/*   Updated: 2021/10/04 19:26:11 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,4 @@ int		Fixed::toInt(void) const {
 
 std::ostream &	operator<<(std::ostream & os, const Fixed & n) {
 	return os << n.toFloat();
-}
-
-int	main(void) {
-	Fixed a;
-	Fixed const b(10); Fixed const c(42.42f); Fixed const d(b);
-	a = Fixed(1234.4321f);
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-	return 0;
 }

@@ -1,21 +1,13 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 18:49:02 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/11 19:04:57 by lpellier         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "Karen.hpp"
 
-#include "Human.hpp"
+int	main(int ac, char **av) {
+	(void)ac;
+	(void)av;
 
-int main() {
-	Human bob;
-	
-	
-	std::cout << bob.identify() << std::endl;
-	std::cout << bob.getBrain().identify() << std::endl;
+	Karen karen;
+
+	karen.complain("debug");
+	karen.complain("warning");
+	karen.complain("info");
+	karen.complain("error");
 }
