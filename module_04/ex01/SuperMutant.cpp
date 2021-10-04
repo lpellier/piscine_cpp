@@ -1,4 +1,4 @@
-#include "PhoneBook.hpp"
+#include "SuperMutant.hpp"
 
 //     ____                        _           _   _____                 _   _                  //
 //    / ___|__ _ _ __   ___  _ __ (_) ___ __ _| | |  ___|   _ _ __   ___| |_(_) ___  _ __  ___  //
@@ -6,47 +6,32 @@
 //   | |__| (_| | | | | (_) | | | | | (_| (_| | | |  _|| |_| | | | | (__| |_| | (_) | | | \__ \ //
 //    \____\__,_|_| |_|\___/|_| |_|_|\___\__,_|_| |_|   \__,_|_| |_|\___|\__|_|\___/|_| |_|___/ //
 
-PhoneBook::PhoneBook(void) {
-	int i = 0;
-
-	while (i < 8) {
-		this->contacts[i] = Contact();
-		i++;
-	}
+SuperMutant::SuperMutant(void) : Enemy(170, "Super Mutant") {
 	// std::cout << "Default constructor called" << std::endl;
+	std::cout << "Gaaah. Me want smash heads!" << std::endl;
 }
 
-PhoneBook::PhoneBook(Contact contacts[8]) {
-	int i = 0;
-	
-	while (i < 8) {
-		this->contacts[i] = contacts[i];
-		i++;
-	}
-	// std::cout << "Parameter constructor called" << std::endl;
-}
-
-PhoneBook::~PhoneBook(void) {
+SuperMutant::~SuperMutant(void) {
 	// std::cout << "Destructor called" << std::endl;
+	std::cout << "Aaargh..." << std::endl;
 }
 
-PhoneBook::PhoneBook(PhoneBook const & src) {
-	int i = 0;
-
-	while (i < 8) {
-		this->contacts[i] = src.contacts[i];
-		i++;
-	}
+SuperMutant::SuperMutant(SuperMutant const & src) {
 	// std::cout << "Copy constructor called" << std::endl;
+	this->_hp = src.getHp();
 }
 
-PhoneBook & PhoneBook::operator=(PhoneBook const & src) {
+SuperMutant & SuperMutant::operator=(SuperMutant const & src) {
 	// std::cout << "Assignment operator called" << std::endl;
-	int i = 0;
-
-	while (i < 8) {
-		this->contacts[i] = src.contacts[i];
-		i++;
-	}
+	this->_hp = src.getHp();
 	return *this;
+}
+
+void		SuperMutant::takeDamage(int amount) {
+	amount -= 3;
+	if (amount < 0)
+		amount = 0;
+	this->_hp -= amount;
+	if (this->_hp < 0)
+		this->_hp = 0;
 }

@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   NinjaTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 12:02:08 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/04 12:46:23 by lpellier         ###   ########.fr       */
+/*   Created: 2021/06/16 16:07:00 by lpellier          #+#    #+#             */
+/*   Updated: 2021/06/16 17:51:28 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include <iostream>
+#include <string>
+#include "ScavTrap.hpp"
 
-class PhoneBook {
+class NinjaTrap : public ClapTrap {
+private:
+	// data
+
 public:
-	Contact             contacts[8];
 	// default constructor
-	PhoneBook           (void);
-	// parameter constructor
-	PhoneBook           (Contact contacts[8]);
+	NinjaTrap(void);
+	NinjaTrap(std::string name);
 	// destructor
-	~PhoneBook           (void);
+	~NinjaTrap(void);
 	// copy constructor
-	PhoneBook           (PhoneBook const & src);
+	NinjaTrap(NinjaTrap const & src);
 	// assignment operator
-	PhoneBook            & operator=(PhoneBook const & src);
+	NinjaTrap & operator=(NinjaTrap const & src);
 
+	// methods
+	void		ninjaShoebox(ClapTrap const & src);
+	void		ninjaShoebox(FragTrap const & src);
+	void		ninjaShoebox(ScavTrap const & src);
+	void		ninjaShoebox(NinjaTrap const & src);
 };

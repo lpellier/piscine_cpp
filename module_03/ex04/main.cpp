@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 12:02:08 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/04 12:46:23 by lpellier         ###   ########.fr       */
+/*   Created: 2021/06/16 12:33:52 by lpellier          #+#    #+#             */
+/*   Updated: 2021/06/16 18:22:12 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "SuperTrap.hpp"
 
-class PhoneBook {
-public:
-	Contact             contacts[8];
-	// default constructor
-	PhoneBook           (void);
-	// parameter constructor
-	PhoneBook           (Contact contacts[8]);
-	// destructor
-	~PhoneBook           (void);
-	// copy constructor
-	PhoneBook           (PhoneBook const & src);
-	// assignment operator
-	PhoneBook            & operator=(PhoneBook const & src);
-
-};
+int	main(void) {
+	srand(time(0));
+	{
+		SuperTrap sprtp("michel");
+		sprtp.meleeAttack("targetOne");
+		sprtp.rangedAttack("targetTwo");
+		sprtp.getEnergyPoints();
+		sprtp.getHitPoints();
+	}
+	exit(0);
+}

@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 12:02:08 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/04 12:46:23 by lpellier         ###   ########.fr       */
+/*   Created: 2021/06/16 14:59:14 by lpellier          #+#    #+#             */
+/*   Updated: 2021/06/16 16:00:24 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "FragTrap.hpp"
+#include <iostream>
+#include <string>
 
-class PhoneBook {
+class ScavTrap : public ClapTrap {
+private:
+
 public:
-	Contact             contacts[8];
 	// default constructor
-	PhoneBook           (void);
-	// parameter constructor
-	PhoneBook           (Contact contacts[8]);
+	ScavTrap();
+	ScavTrap(std::string name);
 	// destructor
-	~PhoneBook           (void);
+	~ScavTrap();
 	// copy constructor
-	PhoneBook           (PhoneBook const & src);
+	ScavTrap(ScavTrap const & src);
 	// assignment operator
-	PhoneBook            & operator=(PhoneBook const & src);
+	ScavTrap & operator=(ScavTrap const & src);
 
+	// this functions activates a random challenge hopefully fun
+	void		challengeNewcomer();
 };

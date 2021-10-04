@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 12:02:08 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/04 12:46:23 by lpellier         ###   ########.fr       */
+/*   Created: 2021/06/15 16:45:52 by lpellier          #+#    #+#             */
+/*   Updated: 2021/06/15 17:43:22 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include <iostream>
+#include <string>
 
-class PhoneBook {
-public:
-	Contact             contacts[8];
-	// default constructor
-	PhoneBook           (void);
-	// parameter constructor
-	PhoneBook           (Contact contacts[8]);
-	// destructor
-	~PhoneBook           (void);
-	// copy constructor
-	PhoneBook           (PhoneBook const & src);
-	// assignment operator
-	PhoneBook            & operator=(PhoneBook const & src);
+class Fixed
+{
+	
+	private:
+		int			_fixedValue;
+		static const int	_binaryPoint = 8;
 
+	public:
+					Fixed();
+					~Fixed();
+					Fixed(Fixed const & src);
+		void		operator=(Fixed const & src);
+
+		int			getRawBits(void) const;
+		void		setRawBits(int const raw);
 };

@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Sorcerer.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 12:02:08 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/04 12:46:23 by lpellier         ###   ########.fr       */
+/*   Created: 2021/06/17 13:48:59 by lpellier          #+#    #+#             */
+/*   Updated: 2021/06/17 14:29:31 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "Peon.hpp"
 
-class PhoneBook {
+class Sorcerer {
+private:
+	std::string		_name;
+	std::string		_title;
+
 public:
-	Contact             contacts[8];
 	// default constructor
-	PhoneBook           (void);
-	// parameter constructor
-	PhoneBook           (Contact contacts[8]);
+					Sorcerer(void);
+					Sorcerer(std::string name, std::string title);
 	// destructor
-	~PhoneBook           (void);
+					~Sorcerer(void);
 	// copy constructor
-	PhoneBook           (PhoneBook const & src);
+					Sorcerer(Sorcerer const & src);
 	// assignment operator
-	PhoneBook            & operator=(PhoneBook const & src);
+	Sorcerer &		operator=(Sorcerer const & src);
 
+	// getters
+	std::string		getName() const;
+	std::string		getTitle() const;
+
+	// methods
+	void			polymorph(Victim const &) const;
 };
+
+std::ostream &		operator<<(std::ostream & output, const Sorcerer & sorcerer);

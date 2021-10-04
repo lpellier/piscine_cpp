@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.hpp                                  :+:      :+:    :+:   */
+/*   ISquad.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 16:41:16 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/11 10:59:11 by lpellier         ###   ########.fr       */
+/*   Created: 2021/06/22 14:42:13 by lpellier          #+#    #+#             */
+/*   Updated: 2021/06/22 16:42:00 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_HPP
-# define CONTACT_CLASS_HPP
+#include "ISpaceMarine.hpp"
 
-class	Contact {
+class	ISquad {
 	public:
-
-		std::string 
-			firstName, 
-			lastName, 
-			nickname, 
-			login, 
-			postalAddress, 
-			emailAddress, 
-			phoneNumber, 
-			birthdayDate, 
-			favoriteMeal, 
-			underwearColor, 
-			darkestSecret;
+		virtual ~ISquad() {};
+		virtual int getCount() const = 0;
+		virtual ISpaceMarine* getUnit(int) const = 0;
+		virtual int push(ISpaceMarine*) = 0;
 };
-
-#endif

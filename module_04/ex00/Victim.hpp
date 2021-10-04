@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Victim.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 12:02:08 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/04 12:46:23 by lpellier         ###   ########.fr       */
+/*   Created: 2021/06/17 14:27:59 by lpellier          #+#    #+#             */
+/*   Updated: 2021/06/18 16:27:00 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include <iostream>
+#include <string>
 
-class PhoneBook {
+class Victim {
+protected:
+	std::string _name;
+
 public:
-	Contact             contacts[8];
 	// default constructor
-	PhoneBook           (void);
-	// parameter constructor
-	PhoneBook           (Contact contacts[8]);
+	Victim(void);
+	Victim(std::string name);
 	// destructor
-	~PhoneBook           (void);
+	~Victim(void);
 	// copy constructor
-	PhoneBook           (PhoneBook const & src);
+	Victim(Victim const & src);
 	// assignment operator
-	PhoneBook            & operator=(PhoneBook const & src);
+	Victim & operator=(Victim const & src);
 
+	// getters
+	std::string		getName() const;
+
+	// methods
+	virtual void			getPolymorphed() const;
 };
+
+std::ostream &	operator<<(std::ostream & output, const Victim & victim);

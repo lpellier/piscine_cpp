@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   ISpaceMarine.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 12:02:08 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/04 12:46:23 by lpellier         ###   ########.fr       */
+/*   Created: 2021/06/22 14:36:29 by lpellier          #+#    #+#             */
+/*   Updated: 2021/06/22 14:51:57 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include <iostream>
+#include <string>
+#include <list>
 
-class PhoneBook {
-public:
-	Contact             contacts[8];
-	// default constructor
-	PhoneBook           (void);
-	// parameter constructor
-	PhoneBook           (Contact contacts[8]);
-	// destructor
-	~PhoneBook           (void);
-	// copy constructor
-	PhoneBook           (PhoneBook const & src);
-	// assignment operator
-	PhoneBook            & operator=(PhoneBook const & src);
-
+class ISpaceMarine
+{
+	public:
+		virtual ~ISpaceMarine() {}
+		virtual ISpaceMarine* clone() const = 0;
+		virtual void battleCry() const = 0;
+		virtual void rangedAttack() const = 0;
+		virtual void meleeAttack() const = 0;
 };

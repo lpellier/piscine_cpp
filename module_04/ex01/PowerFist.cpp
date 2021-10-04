@@ -1,4 +1,4 @@
-#include "PhoneBook.hpp"
+#include "PowerFist.hpp"
 
 //     ____                        _           _   _____                 _   _                  //
 //    / ___|__ _ _ __   ___  _ __ (_) ___ __ _| | |  ___|   _ _ __   ___| |_(_) ___  _ __  ___  //
@@ -6,47 +6,35 @@
 //   | |__| (_| | | | | (_) | | | | | (_| (_| | | |  _|| |_| | | | | (__| |_| | (_) | | | \__ \ //
 //    \____\__,_|_| |_|\___/|_| |_|_|\___\__,_|_| |_|   \__,_|_| |_|\___|\__|_|\___/|_| |_|___/ //
 
-PhoneBook::PhoneBook(void) {
-	int i = 0;
-
-	while (i < 8) {
-		this->contacts[i] = Contact();
-		i++;
-	}
+PowerFist::PowerFist(void) : AWeapon("Power Fist", 8, 50), _attackOutput("* pschhh... SBAM! *") {
 	// std::cout << "Default constructor called" << std::endl;
 }
 
-PhoneBook::PhoneBook(Contact contacts[8]) {
-	int i = 0;
-	
-	while (i < 8) {
-		this->contacts[i] = contacts[i];
-		i++;
-	}
-	// std::cout << "Parameter constructor called" << std::endl;
-}
-
-PhoneBook::~PhoneBook(void) {
+PowerFist::~PowerFist(void) {
 	// std::cout << "Destructor called" << std::endl;
 }
 
-PhoneBook::PhoneBook(PhoneBook const & src) {
-	int i = 0;
-
-	while (i < 8) {
-		this->contacts[i] = src.contacts[i];
-		i++;
-	}
+PowerFist::PowerFist(PowerFist const & src) {
+	(void)src;
 	// std::cout << "Copy constructor called" << std::endl;
 }
 
-PhoneBook & PhoneBook::operator=(PhoneBook const & src) {
+PowerFist & PowerFist::operator=(PowerFist const & src) {
+	(void)src;
 	// std::cout << "Assignment operator called" << std::endl;
-	int i = 0;
-
-	while (i < 8) {
-		this->contacts[i] = src.contacts[i];
-		i++;
-	}
 	return *this;
+}
+
+//       _                                         //
+//      / \   ___ ___ ___  ___ ___  ___  _ __ ___  //
+//     / _ \ / __/ __/ _ \/ __/ __|/ _ \| '__/ __| //
+//    / ___ \ (_| (_|  __/\__ \__ \ (_) | |  \__ \ //
+//   /_/   \_\___\___\___||___/___/\___/|_|  |___/ //
+
+std::string const 	PowerFist::getAttackOutput() const {
+	return this->_attackOutput;
+}
+
+void				PowerFist::attack(void) const {
+	std::cout << this->_attackOutput << std::endl;
 }
