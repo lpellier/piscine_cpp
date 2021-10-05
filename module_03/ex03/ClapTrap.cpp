@@ -6,64 +6,42 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 11:44:19 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/16 16:01:33 by lpellier         ###   ########.fr       */
+/*   Updated: 2021/10/05 15:15:51 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _name("Basic Fuck") {
-	std::cout << "CL4P-TP " << this->_name << " : Default constructor called : claaaaaptraaaaap :)" << std::endl;
-	this->_hitPoints = 100;
-	this->_maxHitPoints = 100;
-	this->_energyPoints = 100;
-	this->_maxEnergyPoints = 100;
-	this->_level = 1;
-	this->_meleeAttackDamage = 30;
-	this->_rangedAttackDamage = 20;
-	this->_armorDamageReduction = 5;
+ClapTrap::ClapTrap() : _name("Basic Clap") {
+	std::cout << "CL4P-TP " << this->_name << " : Default constructor called" << std::endl;
+	this->_hitPoints = 10;
+	this->_energyPoints = 10;
+	this->_attackDamage = 0;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name) {
-	std::cout << "CL4P-TP " << this->_name << " : Default constructor called : claaaaaptraaaaap :)" << std::endl;
-	this->_hitPoints = 100;
-	this->_maxHitPoints = 100;
-	this->_energyPoints = 100;
-	this->_maxEnergyPoints = 100;
-	this->_level = 1;
-	this->_meleeAttackDamage = 30;
-	this->_rangedAttackDamage = 20;
-	this->_armorDamageReduction = 5;
+	std::cout << "CL4P-TP " << this->_name << " : Parameter constructor called" << std::endl;
+	this->_hitPoints = 10;
+	this->_energyPoints = 10;
+	this->_attackDamage = 0;
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << "CL4P-TP " << this->_name << " : Destructor called : clap trap only wanted to laugh..." << std::endl;
+	std::cout << "CL4P-TP " << this->_name << " : Destructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const & src) {
 	this->_name = src.getName();
-	std::cout << "CL4P-TP " << this->_name << " : Copy constructor called : claaaaaptraaaaap (:" << std::endl;
+	std::cout << "CL4P-TP " << this->_name << " : Copy constructor called" << std::endl;
 	this->_hitPoints = src.getHitPoints();
-	this->_maxHitPoints = 100;
 	this->_energyPoints = src.getEnergyPoints();
-	this->_maxEnergyPoints = 100;
-	this->_level = src.getLevel();
-	this->_meleeAttackDamage = 30;
-	this->_rangedAttackDamage = 20;
-	this ->_armorDamageReduction = 5;
 }
 
 ClapTrap &	ClapTrap::operator=(ClapTrap const & src) {
 	this->_name = src.getName();
 	std::cout << "CL4P-TP " << this->_name << " : Assignement operator called" << std::endl;
 	this->_hitPoints = src.getHitPoints();
-	this->_maxHitPoints = 100;
 	this->_energyPoints = src.getEnergyPoints();
-	this->_maxEnergyPoints = 100;
-	this->_level = src.getLevel();
-	this->_meleeAttackDamage = 30;
-	this->_rangedAttackDamage = 20;
-	this ->_armorDamageReduction = 5;
 	return *this;
 }
 
@@ -79,32 +57,27 @@ int			ClapTrap::getEnergyPoints() const {
 	return (this->_energyPoints);
 }
 
-int			ClapTrap::getLevel() const {
-	return (this->_level);
+int			ClapTrap::getAttackDamage() const {
+	return (this->_attackDamage);
 }
 
-void		ClapTrap::rangedAttack(std::string const & target) const {
-	std::cout << "CL4P-TP " << this->_name << " jumps in the air and takes three huge rocket launchers out of his outlet hole and fires them all at " << target << " causing " << this->_rangedAttackDamage << " damage." << std::endl;
-}
-
-void		ClapTrap::meleeAttack(std::string const & target) const {
-	std::cout << "CL4P-TP " << this->_name << " rolls over to " << target << " and slashes them with his electrical sword causing " << this->_meleeAttackDamage << " damage!" << std::endl;
+void		ClapTrap::attack(std::string const & target) const {
+	std::cout << this->_name << " jumps in the air and takes three huge rocket launchers out of his outlet hole and fires them all at " << target << " causing " << this->_attackDamage << " damage." << std::endl;
 }
 
 void		ClapTrap::takeDamage(unsigned int amount) {
-	int	damageTaken = (amount - this->_armorDamageReduction);
-	if (damageTaken >= this->_hitPoints)
-		damageTaken = this->_hitPoints;
-	this->_hitPoints -= damageTaken;
-	std::cout << "CL4P-TP " << this->_name << " took a hit causing " << damageTaken << " damage !" << std::endl;
+	if (amount >= (unsigned int)this->_hitPoints)
+		amount = this->_hitPoints;
+	this->_hitPoints -= amount;
+	std::cout << this->_name << " took a hit causing " << amount << " damage !" << std::endl;
 	if (this->_hitPoints == 0)
-		std::cout << "CL4P-TP " << this->_name << " : \"i just wanted to lauuuugh...\" *dies*" << std::endl;
+		std::cout << this->_name << " : \"i just wanted to looooove... *dies*\"" << std::endl;
 }
 
 void		ClapTrap::beRepaired(unsigned int amount) {
 	int	repairAmount = amount;
-	if (repairAmount + this->_hitPoints >= 100)
-		repairAmount = 100 - this->_hitPoints;
+	// if (repairAmount + this->_hitPoints >= 100)
+	// 	repairAmount = 100 - this->_hitPoints;
 	this->_hitPoints += repairAmount;
-	std::cout << "CL4P-TP " << this->_name << " was repaired for " << repairAmount << " hit points !" << std::endl;
+	std::cout << this->_name << " was repaired for " << repairAmount << " hit points !" << std::endl;
 }

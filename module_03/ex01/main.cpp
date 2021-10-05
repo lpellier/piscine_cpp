@@ -6,54 +6,51 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 12:33:52 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/16 15:33:02 by lpellier         ###   ########.fr       */
+/*   Updated: 2021/10/05 13:14:21 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
 int	main(void) {
 	srand(time(0));
 	{
-		FragTrap fragtp("fragotrapo");
-		FragTrap fragtpTwo;
+		ClapTrap claptp("Idiot");
+		ClapTrap claptpTwo;
 
-		FragTrap fragtpThree(fragtpTwo);
-		fragtpTwo = fragtp;
-		fragtp.rangedAttack("dummyOne");
-		fragtp.meleeAttack("dummyTwo");
-		std::cout << "FR4G-TP " << fragtp.getName() << " has " << fragtp.getHitPoints() << " HP and " << fragtp.getEnergyPoints() << " EP." << std::endl;
-		fragtp.beRepaired(10);
-		std::cout << "FR4G-TP " << fragtp.getName() << " has " << fragtp.getHitPoints() << " HP and " << fragtp.getEnergyPoints() << " EP." << std::endl;
-		fragtp.takeDamage(99);
-		std::cout << "FR4G-TP " << fragtp.getName() << " has " << fragtp.getHitPoints() << " HP and " << fragtp.getEnergyPoints() << " EP." << std::endl;
-		fragtp.beRepaired(150);
-		std::cout << "FR4G-TP " << fragtp.getName() << " has " << fragtp.getHitPoints() << " HP and " << fragtp.getEnergyPoints() << " EP." << std::endl;
+		ClapTrap claptpThree(claptpTwo);
+		claptpTwo = claptp;
+		claptp.attack("dummyOne");
+		claptp.attack("dummyTwo");
+		std::cout << "CL4P-TP " << claptp.getName() << " has " << claptp.getHitPoints() << " HP and " << claptp.getEnergyPoints() << " EP." << std::endl;
+		claptp.beRepaired(10);
+		std::cout << "CL4P-TP " << claptp.getName() << " has " << claptp.getHitPoints() << " HP and " << claptp.getEnergyPoints() << " EP." << std::endl;
+		claptp.takeDamage(99);
+		std::cout << "CL4P-TP " << claptp.getName() << " has " << claptp.getHitPoints() << " HP and " << claptp.getEnergyPoints() << " EP." << std::endl;
+		claptp.beRepaired(150);
+		std::cout << "CL4P-TP " << claptp.getName() << " has " << claptp.getHitPoints() << " HP and " << claptp.getEnergyPoints() << " EP." << std::endl;
 
-		for (int i = 0; i < 5; i++) {
-			fragtp.vaulthunter_dot_exe("fucker");
-		}
-		fragtp.takeDamage(105);
+		claptp.takeDamage(666);
 	}
+	std::cout << std::endl << std::endl;
 	{
-		ScavTrap scavtp("scavtrapini");
+		ScavTrap scavtp("Fucker");
 		ScavTrap scavtpTwo;
 
 		ScavTrap scavtpThree(scavtpTwo);
 		scavtpTwo = scavtp;
-		scavtp.rangedAttack("dummyOne");
-		scavtp.meleeAttack("dummyTwo");
-		std::cout << "FR4G-TP " << scavtp.getName() << " has " << scavtp.getHitPoints() << " HP and " << scavtp.getEnergyPoints() << " EP." << std::endl;
+		scavtp.attack("dummyOne");
+		scavtp.attack("dummyTwo");
+		std::cout << "SC4V-TP " << scavtp.getName() << " has " << scavtp.getHitPoints() << " HP and " << scavtp.getEnergyPoints() << " EP." << std::endl;
 		scavtp.beRepaired(10);
-		std::cout << "FR4G-TP " << scavtp.getName() << " has " << scavtp.getHitPoints() << " HP and " << scavtp.getEnergyPoints() << " EP." << std::endl;
+		std::cout << "SC4V-TP " << scavtp.getName() << " has " << scavtp.getHitPoints() << " HP and " << scavtp.getEnergyPoints() << " EP." << std::endl;
 		scavtp.takeDamage(99);
-		std::cout << "FR4G-TP " << scavtp.getName() << " has " << scavtp.getHitPoints() << " HP and " << scavtp.getEnergyPoints() << " EP." << std::endl;
+		std::cout << "SC4V-TP " << scavtp.getName() << " has " << scavtp.getHitPoints() << " HP and " << scavtp.getEnergyPoints() << " EP." << std::endl;
 		scavtp.beRepaired(150);
-		std::cout << "FR4G-TP " << scavtp.getName() << " has " << scavtp.getHitPoints() << " HP and " << scavtp.getEnergyPoints() << " EP." << std::endl;
+		std::cout << "SC4V-TP " << scavtp.getName() << " has " << scavtp.getHitPoints() << " HP and " << scavtp.getEnergyPoints() << " EP." << std::endl;
 
-		scavtp.challengeNewcomer();
-		scavtp.takeDamage(105);
+		scavtp.guardGate();
+		scavtp.takeDamage(666);
 	}
 	exit(0);
 }

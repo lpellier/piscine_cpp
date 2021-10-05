@@ -6,15 +6,13 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 14:59:14 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/16 16:00:24 by lpellier         ###   ########.fr       */
+/*   Updated: 2021/10/05 14:54:42 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
-#include <iostream>
-#include <string>
+#include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
 private:
 
 public:
@@ -28,6 +26,6 @@ public:
 	// assignment operator
 	ScavTrap & operator=(ScavTrap const & src);
 
-	// this functions activates a random challenge hopefully fun
-	void		challengeNewcomer();
+	// this functions lets ScavMan guard the gate ya know
+	void		guardGate();
 };

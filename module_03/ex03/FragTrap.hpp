@@ -6,15 +6,13 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 11:44:20 by lpellier          #+#    #+#             */
-/*   Updated: 2021/06/16 15:57:14 by lpellier         ###   ########.fr       */
+/*   Updated: 2021/10/05 14:54:38 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include <iostream>
-#include <string>
+#include "ScavTrap.hpp"
 
-class FragTrap : public ClapTrap {
+class FragTrap : virtual public ClapTrap {
 private:
 
 public:
@@ -27,9 +25,7 @@ public:
 
 				FragTrap & operator=(FragTrap const & src);
 
-	// this functions activates a random attack (among 5 possible ones) on the target
-	// the attack costs 25 energy points. 
-	void		vaulthunter_dot_exe(std::string const & target);
+	void		highFivesGuys(void);
 };
 
 
