@@ -1,4 +1,4 @@
-#include "AMateria.hpp"
+#include "WrongAnimal.hpp"
 
 //                                 _             _        ___                         _                   //
 //                                (_)           | |      / __)                    _  (_)                  //
@@ -7,28 +7,28 @@
 //  ( (___/ ___ | | | | |_| | | | | ( (___/ ___ | |     | |  | |_| | | | ( (___  | |_| | |_| | | | |___ | //
 //   \____)_____|_| |_|\___/|_| |_|_|\____)_____|\_)    |_|  |____/|_| |_|\____)  \__)_|\___/|_| |_(___/  //
 
-AMateria::AMateria(void) {
+WrongAnimal::WrongAnimal(void) {
 	// std::cout << "Default constructor called" << std::endl;
 }
 
-AMateria::AMateria(std::string const & type) : \
+WrongAnimal::WrongAnimal(std::string type) : \
 	_type(type) {
 	// std::cout << "Parameter constructor called" << std::endl;
 }
 
-AMateria::~AMateria(void) {
+WrongAnimal::~WrongAnimal(void) {
 	// std::cout << "Destructor called" << std::endl;
 }
 
-AMateria::AMateria(AMateria const & src) : _type(src.getType()) {
+WrongAnimal::WrongAnimal(WrongAnimal const & src) {
 	// std::cout << "Copy constructor called" << std::endl;
-	// this = src.clone();
+	this->_type = src.getType();
 }
 
-AMateria & AMateria::operator=(AMateria const & src) {
+WrongAnimal & WrongAnimal::operator=(WrongAnimal const & src) {
 	// std::cout << "Assignment operator called" << std::endl;
-	// this->_type = src.getType();
-	return *(src.clone());
+	this->_type = src.getType();
+	return *this;
 }
 
 //   _____  ____ ____ _____  ___  ___  ___   ____ ___  //
@@ -36,7 +36,7 @@ AMateria & AMateria::operator=(AMateria const & src) {
 //  / ___ ( (__( (___| ____|___ |___ | |_| | |  |___ | //
 //  \_____|\____)____)_____|___/(___/ \___/|_|  (___/  //
 
-std::string const &	AMateria::getType(void) const {
+std::string	WrongAnimal::getType(void) const {
 	return this->_type;
 }
 
@@ -46,6 +46,10 @@ std::string const &	AMateria::getType(void) const {
 //  | | | | |_| | | |_/ ___ | | || |_| | |  |___ | //
 //  |_|_|_|____/   \__)_____|  \__)___/|_|  (___/  //
 
+void			WrongAnimal::setType(std::string type) {
+	this->_type = type;
+}
+
 //                     _               _       //
 //                 _  | |             | |      //
 //   ____  _____ _| |_| |__   ___   __| | ___  //
@@ -53,3 +57,6 @@ std::string const &	AMateria::getType(void) const {
 //  | | | | ____| | |_| | | | |_| ( (_| |___ | //
 //  |_|_|_|_____)  \__)_| |_|\___/ \____(___/  //
 
+void			WrongAnimal::makeSound() const {
+	std::cout << "I don't make sounds, what did you expect?" << std::endl;
+}

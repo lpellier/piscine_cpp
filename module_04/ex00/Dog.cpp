@@ -1,4 +1,4 @@
-#include "AMateria.hpp"
+#include "Dog.hpp"
 
 //                                 _             _        ___                         _                   //
 //                                (_)           | |      / __)                    _  (_)                  //
@@ -7,38 +7,30 @@
 //  ( (___/ ___ | | | | |_| | | | | ( (___/ ___ | |     | |  | |_| | | | ( (___  | |_| | |_| | | | |___ | //
 //   \____)_____|_| |_|\___/|_| |_|_|\____)_____|\_)    |_|  |____/|_| |_|\____)  \__)_|\___/|_| |_(___/  //
 
-AMateria::AMateria(void) {
+Dog::Dog(void) {
 	// std::cout << "Default constructor called" << std::endl;
+	this->_type = "Dog";
 }
 
-AMateria::AMateria(std::string const & type) : \
-	_type(type) {
-	// std::cout << "Parameter constructor called" << std::endl;
-}
-
-AMateria::~AMateria(void) {
+Dog::~Dog(void) {
 	// std::cout << "Destructor called" << std::endl;
 }
 
-AMateria::AMateria(AMateria const & src) : _type(src.getType()) {
+Dog::Dog(Dog const & src) {
 	// std::cout << "Copy constructor called" << std::endl;
-	// this = src.clone();
+	this->setType(src.getType());
 }
 
-AMateria & AMateria::operator=(AMateria const & src) {
+Dog & Dog::operator=(Dog const & src) {
 	// std::cout << "Assignment operator called" << std::endl;
-	// this->_type = src.getType();
-	return *(src.clone());
+	this->setType(src.getType());
+	return *this;
 }
 
 //   _____  ____ ____ _____  ___  ___  ___   ____ ___  //
 //  (____ |/ ___) ___) ___ |/___)/___)/ _ \ / ___)___) //
 //  / ___ ( (__( (___| ____|___ |___ | |_| | |  |___ | //
 //  \_____|\____)____)_____|___/(___/ \___/|_|  (___/  //
-
-std::string const &	AMateria::getType(void) const {
-	return this->_type;
-}
 
 //                 _           _                   //
 //   ____  _   _ _| |_ _____ _| |_ ___   ____ ___  //
@@ -53,3 +45,6 @@ std::string const &	AMateria::getType(void) const {
 //  | | | | ____| | |_| | | | |_| ( (_| |___ | //
 //  |_|_|_|_____)  \__)_| |_|\___/ \____(___/  //
 
+void			Dog::makeSound() const {
+	std::cout << "Ouaf" << std::endl;
+}

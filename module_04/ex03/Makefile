@@ -1,0 +1,26 @@
+NAME = test
+
+CC = clang++
+
+CFLAGS = -Wall -Werror -Wextra -std=c++98
+
+SRCS = ./main.cpp \
+		./AMateria.cpp \
+		./Cure.cpp \
+		./Character.cpp \
+		./Ice.cpp \
+		./MateriaSource.cpp
+
+OBJS = $(SRCS:.c=.o)
+
+RM = rm -rf
+
+all: $(NAME)
+
+$(NAME) : $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(SRCS)
+
+clean : 
+	$(RM) $(NAME)
+
+re : clean all

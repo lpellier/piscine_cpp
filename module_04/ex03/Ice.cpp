@@ -1,4 +1,4 @@
-#include "AMateria.hpp"
+#include "Ice.hpp"
 
 //                                 _             _        ___                         _                   //
 //                                (_)           | |      / __)                    _  (_)                  //
@@ -7,38 +7,32 @@
 //  ( (___/ ___ | | | | |_| | | | | ( (___/ ___ | |     | |  | |_| | | | ( (___  | |_| | |_| | | | |___ | //
 //   \____)_____|_| |_|\___/|_| |_|_|\____)_____|\_)    |_|  |____/|_| |_|\____)  \__)_|\___/|_| |_(___/  //
 
-AMateria::AMateria(void) {
+Ice::Ice(void) : AMateria("ice") {
 	// std::cout << "Default constructor called" << std::endl;
 }
 
-AMateria::AMateria(std::string const & type) : \
-	_type(type) {
-	// std::cout << "Parameter constructor called" << std::endl;
-}
+// Ice::Ice() {
+// 	// std::cout << "Parameter constructor called" << std::endl;
+// }
 
-AMateria::~AMateria(void) {
+Ice::~Ice(void) {
 	// std::cout << "Destructor called" << std::endl;
 }
 
-AMateria::AMateria(AMateria const & src) : _type(src.getType()) {
+Ice::Ice(Ice const & src) : AMateria(src) {
 	// std::cout << "Copy constructor called" << std::endl;
-	// this = src.clone();
 }
 
-AMateria & AMateria::operator=(AMateria const & src) {
-	// std::cout << "Assignment operator called" << std::endl;
-	// this->_type = src.getType();
-	return *(src.clone());
-}
+// Ice & Ice::operator=(Ice const & src) {
+// 	// std::cout << "Assignment operator called" << std::endl;
+// 	this->_type = src.getType();
+// 	return (src.clone());
+// }
 
 //   _____  ____ ____ _____  ___  ___  ___   ____ ___  //
 //  (____ |/ ___) ___) ___ |/___)/___)/ _ \ / ___)___) //
 //  / ___ ( (__( (___| ____|___ |___ | |_| | |  |___ | //
 //  \_____|\____)____)_____|___/(___/ \___/|_|  (___/  //
-
-std::string const &	AMateria::getType(void) const {
-	return this->_type;
-}
 
 //                 _           _                   //
 //   ____  _   _ _| |_ _____ _| |_ ___   ____ ___  //
@@ -53,3 +47,10 @@ std::string const &	AMateria::getType(void) const {
 //  | | | | ____| | |_| | | | |_| ( (_| |___ | //
 //  |_|_|_|_____)  \__)_| |_|\___/ \____(___/  //
 
+AMateria *		Ice::clone() const {
+	return (new Ice());
+}
+
+void			Ice::use(ICharacter & target) {
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}

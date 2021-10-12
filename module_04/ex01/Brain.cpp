@@ -1,4 +1,4 @@
-#include "AMateria.hpp"
+#include "Brain.hpp"
 
 //                                 _             _        ___                         _                   //
 //                                (_)           | |      / __)                    _  (_)                  //
@@ -7,44 +7,43 @@
 //  ( (___/ ___ | | | | |_| | | | | ( (___/ ___ | |     | |  | |_| | | | ( (___  | |_| | |_| | | | |___ | //
 //   \____)_____|_| |_|\___/|_| |_|_|\____)_____|\_)    |_|  |____/|_| |_|\____)  \__)_|\___/|_| |_(___/  //
 
-AMateria::AMateria(void) {
-	// std::cout << "Default constructor called" << std::endl;
+Brain::Brain(void) {
+	std::cout << "Brain created" << std::endl;
 }
 
-AMateria::AMateria(std::string const & type) : \
-	_type(type) {
-	// std::cout << "Parameter constructor called" << std::endl;
+Brain::~Brain(void) {
+	std::cout << "Brain deleted" << std::endl;
 }
 
-AMateria::~AMateria(void) {
-	// std::cout << "Destructor called" << std::endl;
-}
+// Brain::Brain(Brain const & src) {
+// 	// std::cout << "Copy constructor called" << std::endl;
+// 	this->_ideas[100] = src.getIdeas[100]();
+// }
 
-AMateria::AMateria(AMateria const & src) : _type(src.getType()) {
-	// std::cout << "Copy constructor called" << std::endl;
-	// this = src.clone();
-}
-
-AMateria & AMateria::operator=(AMateria const & src) {
-	// std::cout << "Assignment operator called" << std::endl;
-	// this->_type = src.getType();
-	return *(src.clone());
-}
+// Brain & Brain::operator=(Brain const & src) {
+// 	// std::cout << "Assignment operator called" << std::endl;
+// 	this->_ideas[100] = src.getIdeas[100]();
+// 	return *this;
+// }
 
 //   _____  ____ ____ _____  ___  ___  ___   ____ ___  //
 //  (____ |/ ___) ___) ___ |/___)/___)/ _ \ / ___)___) //
 //  / ___ ( (__( (___| ____|___ |___ | |_| | |  |___ | //
 //  \_____|\____)____)_____|___/(___/ \___/|_|  (___/  //
 
-std::string const &	AMateria::getType(void) const {
-	return this->_type;
-}
+// std::string	Brain::getIdeas(void) const {
+// 	return this->_ideas;
+// }
 
 //                 _           _                   //
 //   ____  _   _ _| |_ _____ _| |_ ___   ____ ___  //
 //  |    \| | | (_   _|____ (_   _) _ \ / ___)___) //
 //  | | | | |_| | | |_/ ___ | | || |_| | |  |___ | //
 //  |_|_|_|____/   \__)_____|  \__)___/|_|  (___/  //
+
+// void			Brain::setIdeas(std::string ideas[100]) {
+// 	this->_ideas = ideas;
+// }
 
 //                     _               _       //
 //                 _  | |             | |      //
