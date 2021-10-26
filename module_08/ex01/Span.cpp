@@ -1,0 +1,89 @@
+#include "Span.hpp"
+
+//                                 _             _        ___                         _                   //
+//                                (_)           | |      / __)                    _  (_)                  //
+//    ____ _____ ____   ___  ____  _  ____ _____| |    _| |__ _   _ ____   ____ _| |_ _  ___  ____   ___  //
+//   / ___|____ |  _ \ / _ \|  _ \| |/ ___|____ | |   (_   __) | | |  _ \ / ___|_   _) |/ _ \|  _ \ /___) //
+//  ( (___/ ___ | | | | |_| | | | | ( (___/ ___ | |     | |  | |_| | | | ( (___  | |_| | |_| | | | |___ | //
+//   \____)_____|_| |_|\___/|_| |_|_|\____)_____|\_)    |_|  |____/|_| |_|\____)  \__)_|\___/|_| |_(___/  //
+
+Span::Span(void) : _max(0) {
+	// std::cout << "Default constructor called" << std::endl;
+}
+
+Span::Span(unsigned int n) : _max(n) {
+	// std::cout << "Parameter constructor called" << std::endl;
+}
+
+Span::~Span(void) {
+	// std::cout << "Destructor called" << std::endl;
+}
+
+Span::Span(Span const & src) {
+	// std::cout << "Copy constructor called" << std::endl;
+	this->_storage = src.getStorage();
+}
+
+Span & Span::operator=(Span const & src) {
+	// std::cout << "Assignment operator called" << std::endl;
+	this->_storage = src.getStorage();
+	return *this;
+}
+
+//   _____  ____ ____ _____  ___  ___  ___   ____ ___  //
+//  (____ |/ ___) ___) ___ |/___)/___)/ _ \ / ___)___) //
+//  / ___ ( (__( (___| ____|___ |___ | |_| | |  |___ | //
+//  \_____|\____)____)_____|___/(___/ \___/|_|  (___/  //
+
+std::vector<int>	Span::getStorage(void) const {
+	return this->_storage;
+}
+
+//                     _               _       //
+//                 _  | |             | |      //
+//   ____  _____ _| |_| |__   ___   __| | ___  //
+//  |    \| ___ (_   _)  _ \ / _ \ / _  |/___) //
+//  | | | | ____| | |_| | | | |_| ( (_| |___ | //
+//  |_|_|_|_____)  \__)_| |_|\___/ \____(___/  //
+
+void				Span::addNumber(const int toBeAdded) {
+	if (this->_storage.size() == this->_max)
+		throw std::exception();
+	this->_storage.push_back(toBeAdded);
+}
+
+void				Span::addNumber(std::vector<int> & toBeAdded) {
+	if (this->_storage.size() + toBeAdded.size() > this->_max)
+		throw std::exception();
+	this->_storage.insert(this->_storage.end(), toBeAdded.begin(), toBeAdded.end());
+}
+
+unsigned int		Span::shortestSpan(void) const {
+	unsigned int shortestSpan = UINT_MAX;
+
+	if (this->_storage.size() < 2)
+		throw std::exception();
+	for (size_t i = 0; i < this->_storage.size(); i++) {
+		for (size_t j = 0; j < this->_storage.size(); j++) {
+			if (j != i && static_cast<unsigned int>(abs(this->_storage.at(i) - this->_storage.at(j))) < shortestSpan) {
+				shortestSpan = static_cast<unsigned int>(abs(this->_storage.at(i) - this->_storage.at(j)));
+			}
+		}
+	}
+	return shortestSpan;
+}
+
+unsigned int		Span::longestSpan(void) const {
+	unsigned int longestSpan = 0;
+
+	if (this->_storage.size() < 2)
+		throw std::exception();
+	for (size_t i = 0; i < this->_storage.size(); i++) {
+		for (size_t j = 0; j < this->_storage.size(); j++) {
+			if (j != i && static_cast<unsigned int>(abs(this->_storage.at(i) - this->_storage.at(j))) > longestSpan)
+				longestSpan = static_cast<unsigned int>(abs(this->_storage.at(i) - this->_storage.at(j)));
+		}
+	}
+	return longestSpan;
+}
+
