@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "Karen.hpp"
 
 int	filter_to_int(std::string filter) {

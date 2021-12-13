@@ -6,12 +6,13 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 17:54:34 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/04 15:57:36 by lpellier         ###   ########.fr       */
+/*   Updated: 2021/12/13 11:51:26 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
+#include <stdlib.h>
 #include <string>
 
 int main(int ac, char **av) {

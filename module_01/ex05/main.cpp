@@ -7,7 +7,7 @@ int	main(int ac, char **av) {
 	Karen karen;
 
 	karen.complain("debug");
-	karen.complain("warning");
 	karen.complain("info");
+	karen.complain("warning");
 	karen.complain("error");
 }
