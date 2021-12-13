@@ -6,11 +6,15 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 15:43:30 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/04 12:52:28 by lpellier         ###   ########.fr       */
+/*   Updated: 2021/12/13 11:14:29 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+# define RED "\033[31m"
+# define BLUE "\033[34m"
+# define CYAN "\x1b[36m"
+# define RESET "\x1b[0m"
 
 bool	multipleWords(std::string cmd) {
 	int		wordCount = 0;
@@ -38,15 +42,15 @@ bool	unknownCmd(std::string cmd) {
 void	addContact(Contact *contact) {
 	std::string firstName, lastName, nickname, phoneNumber, darkestSecret;
 	
-	std::cout << CYAN"Please enter your contact's "RED"first name"CYAN"." << RED << std::endl;
+	std::cout << CYAN"Please enter your contact's " << RED"first name" << CYAN"." << RED << std::endl;
 	std::getline(std::cin, firstName);
-	std::cout << CYAN"Please enter your contact's "RED"last name"CYAN"." << RED << std::endl;
+	std::cout << CYAN"Please enter your contact's " << RED"last name" << CYAN"." << RED << std::endl;
 	std::getline(std::cin, lastName);
-	std::cout << CYAN"Please enter your contact's "RED"nickname"CYAN"." << RED << std::endl;
+	std::cout << CYAN"Please enter your contact's " << RED"nickname" << CYAN"." << RED << std::endl;
 	std::getline(std::cin, nickname);
-	std::cout << CYAN"Please enter your contact's "RED"phone number"CYAN"." << RED << std::endl;
+	std::cout << CYAN"Please enter your contact's " << RED"phone number" << CYAN"." << RED << std::endl;
 	std::getline(std::cin, phoneNumber);
-	std::cout << CYAN"Please enter your contact's "RED"darkest secret"CYAN"." << RED << std::endl;
+	std::cout << CYAN"Please enter your contact's " << RED"darkest secret" << CYAN"." << RED << std::endl;
 	std::getline(std::cin, darkestSecret);
 
 	contact->setFirstName(firstName);
@@ -123,15 +127,15 @@ int		main(int ac, char **av) {
 		std::cout << "no arguments supported" << std::endl;
 		exit(EXIT_FAILURE);
 	}
-	std::cout << CYAN"Welcome to your "RED"Awesome Phonebook"CYAN"!" << std::endl;
-	std::cout << CYAN"You're welcome to add up to "RED"EIGHT"CYAN" contacts." << std::endl;
-	std::cout << CYAN"You can use the commands "RED"ADD"CYAN", "RED"SEARCH"CYAN" or "RED"EXIT"CYAN"." << std::endl;
+	std::cout << CYAN"Welcome to your " << RED << "Awesome Phonebook" << CYAN << "!" << std::endl;
+	std::cout << CYAN"You're welcome to add up to " << RED << "EIGHT" << CYAN << " contacts." << std::endl;
+	std::cout << CYAN"You can use the commands " << RED << "ADD" << CYAN << ", " << RED << "SEARCH" << CYAN << " or " << RED << "EXIT" << CYAN << "." << std::endl;
 	while (42) {
-		std::cout << CYAN"AwePB ~ "RED;
+		std::cout << CYAN"AwePB ~ " << RED;
 		std::cin >> cmd;
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		if (cmd == "EXIT") {
-			std::cout << CYAN"Sad to see you go.\n"RED"Bye-bye"RESET << std::endl;
+			std::cout << CYAN"Sad to see you go.\n" << RED << "Bye-bye" << RESET << std::endl;
 			exit(EXIT_SUCCESS);
 		} else if (cmd == "ADD") {
 			if (contactCount >= 8) {

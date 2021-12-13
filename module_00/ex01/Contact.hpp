@@ -1,12 +1,10 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <limits>
+#include <stdlib.h>
 #include <iomanip>
 
-# define RED "\033[31m"
-# define BLUE "\033[34m"
-# define CYAN "\x1b[36m"
-# define RESET "\x1b[0m"
 
 
 class Contact {

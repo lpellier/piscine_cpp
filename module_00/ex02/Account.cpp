@@ -1,5 +1,6 @@
 #include <iostream>
 #include <time.h>
+#include <cstring>
 #include "Account.hpp"
 
 int Account::_totalAmount = 0;
