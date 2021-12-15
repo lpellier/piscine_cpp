@@ -6,7 +6,7 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 19:22:43 by lpellier          #+#    #+#             */
-/*   Updated: 2021/12/15 14:57:32 by lpellier         ###   ########.fr       */
+/*   Updated: 2021/12/15 17:07:47 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ int		main(void) {
 
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	
+	c = b;
 	std::cout << c.getRawBits() << std::endl;
 	return 0;
 }
