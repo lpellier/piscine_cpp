@@ -6,7 +6,7 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 19:22:43 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/04 20:13:46 by lpellier         ###   ########.fr       */
+/*   Updated: 2021/12/15 15:05:25 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@ int	main(void) {
 	std::cout << a << std::endl;
 
 	std::cout << a++ << std::endl;
-	std::cout << a++ << std::endl;
+	std::cout << a++ << std::endl << std::endl;
+
+	std::cout << (a < b) << std::endl;
+	std::cout << (a <= b) << std::endl;
+	std::cout << (a > b) << std::endl;
+	std::cout << (a >= b) << std::endl;
+	std::cout << (a == b) << std::endl;
+	std::cout << (a != b) << std::endl;
 	return 0;
 }
