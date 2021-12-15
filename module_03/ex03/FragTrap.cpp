@@ -6,7 +6,7 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 11:44:19 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/05 13:20:44 by lpellier         ###   ########.fr       */
+/*   Updated: 2021/12/15 15:32:48 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,5 @@ FragTrap &	FragTrap::operator=(FragTrap const & src) {
 }
 
 void		FragTrap::highFivesGuys(void) {
-	std::cout << "FR4G-TP " << this->_name << " : hey mister... wanna high five ??" << std::endl;
+	std::cout << this->_name << " : hey mister... wanna high five ??" << std::endl;
 }

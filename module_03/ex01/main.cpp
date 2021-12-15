@@ -6,14 +6,13 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 12:33:52 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/05 13:14:21 by lpellier         ###   ########.fr       */
+/*   Updated: 2021/12/15 15:22:43 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 int	main(void) {
-	srand(time(0));
 	{
 		ClapTrap claptp("Idiot");
 		ClapTrap claptpTwo;
@@ -52,5 +51,4 @@ int	main(void) {
 		scavtp.guardGate();
 		scavtp.takeDamage(666);
 	}
-	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 11:44:20 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/05 13:13:23 by lpellier         ###   ########.fr       */
+/*   Updated: 2021/12/15 15:24:35 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ private:
 
 public:
 	// constructors / destructors
-				FragTrap();
-				FragTrap(std::string name);
-				FragTrap(FragTrap const & src);
+	FragTrap();
+	FragTrap(std::string name);
+	FragTrap(FragTrap const & src);
 
-				~FragTrap();
+	~FragTrap();
 
-				FragTrap & operator=(FragTrap const & src);
+	FragTrap & operator=(FragTrap const & src);
 
 	void		highFivesGuys(void);
 };

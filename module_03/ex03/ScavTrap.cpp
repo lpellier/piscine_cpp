@@ -6,7 +6,7 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 14:59:17 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/05 13:19:48 by lpellier         ###   ########.fr       */
+/*   Updated: 2021/12/15 15:32:55 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,10 @@ ScavTrap &	ScavTrap::operator=(ScavTrap const & src) {
 	return *this;
 }
 
+void		ScavTrap::attack(std::string const & target) const {
+	std::cout << this->_name << " is attacking like a scav man and shoots " << target << " causing " << this->_attackDamage << " damage." << std::endl;
+}
+
 void		ScavTrap::guardGate(void) {
-	std::cout << "SC4V-TP " << this->_name << " is guarding the gate! That's right, he's in gate keeper mode." << std::endl;
+	std::cout << this->_name << " is guarding the gate! That's right, he's in gate keeper mode." << std::endl;
 }

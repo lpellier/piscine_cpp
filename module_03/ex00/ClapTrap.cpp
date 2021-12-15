@@ -6,7 +6,7 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 11:44:19 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/05 13:20:04 by lpellier         ###   ########.fr       */
+/*   Updated: 2021/12/15 15:16:57 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,6 @@ void		ClapTrap::takeDamage(unsigned int amount) {
 
 void		ClapTrap::beRepaired(unsigned int amount) {
 	int	repairAmount = amount;
-	// if (repairAmount + this->_hitPoints >= 100)
-	// 	repairAmount = 100 - this->_hitPoints;
 	this->_hitPoints += repairAmount;
 	std::cout << "CL4P-TP " << this->_name << " was repaired for " << repairAmount << " hit points !" << std::endl;
 }

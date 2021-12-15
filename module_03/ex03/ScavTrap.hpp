@@ -6,7 +6,7 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 14:59:14 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/05 14:54:42 by lpellier         ###   ########.fr       */
+/*   Updated: 2021/12/15 15:30:18 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ public:
 
 	// this functions lets ScavMan guard the gate ya know
 	void		guardGate();
+	void		attack(std::string const & target) const;
 };

@@ -6,7 +6,7 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 11:44:20 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/05 15:15:25 by lpellier         ###   ########.fr       */
+/*   Updated: 2021/12/15 15:24:39 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ protected:
 
 public:
 	// constructors / destructors
-				ClapTrap();
-				ClapTrap(std::string name);
-				ClapTrap(ClapTrap const & src);
+	ClapTrap();
+	ClapTrap(std::string name);
+	ClapTrap(ClapTrap const & src);
 
-				~ClapTrap();
+	~ClapTrap();
 
-				ClapTrap & operator=(ClapTrap const & src);
+	ClapTrap & operator=(ClapTrap const & src);
 
 	// actions
 	void		attack(std::string const & target) const;
