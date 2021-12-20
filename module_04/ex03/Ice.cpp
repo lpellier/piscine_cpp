@@ -8,26 +8,26 @@
 //   \____)_____|_| |_|\___/|_| |_|_|\____)_____|\_)    |_|  |____/|_| |_|\____)  \__)_|\___/|_| |_(___/  //
 
 Ice::Ice(void) : AMateria("ice") {
-	// std::cout << "Default constructor called" << std::endl;
+	std::cout << "Ice : Default constructor called" << std::endl;
 }
 
-// Ice::Ice() {
-// 	// std::cout << "Parameter constructor called" << std::endl;
-// }
+Ice::Ice() {
+	std::cout << "Ice : Parameter constructor called" << std::endl;
+}
 
 Ice::~Ice(void) {
-	// std::cout << "Destructor called" << std::endl;
+	std::cout << "Ice : Destructor called" << std::endl;
 }
 
 Ice::Ice(Ice const & src) : AMateria(src) {
-	// std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Ice : Copy constructor called" << std::endl;
 }
 
-// Ice & Ice::operator=(Ice const & src) {
-// 	// std::cout << "Assignment operator called" << std::endl;
-// 	this->_type = src.getType();
-// 	return (src.clone());
-// }
+Ice & Ice::operator=(Ice const & src) {
+	std::cout << "Ice : Assignment operator called" << std::endl;
+	this->_type = src.getType();
+	return (src.clone());
+}
 
 //   _____  ____ ____ _____  ___  ___  ___   ____ ___  //
 //  (____ |/ ___) ___) ___ |/___)/___)/ _ \ / ___)___) //

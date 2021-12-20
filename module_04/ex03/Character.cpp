@@ -8,18 +8,18 @@
 //   \____)_____|_| |_|\___/|_| |_|_|\____)_____|\_)    |_|  |____/|_| |_|\____)  \__)_|\___/|_| |_(___/  //
 
 Character::Character(void) : _name("null") {
-	// std::cout << "Default constructor called" << std::endl;
+	std::cout << "Character : Default constructor called" << std::endl;
 	this->_inventory = new AMateria *[4];
 }
 
 Character::Character(std::string const & name) : \
 	_name(name) {
 	this->_inventory = new AMateria *[4];
-	// std::cout << "Parameter constructor called" << std::endl;
+	std::cout << "Character : Parameter constructor called" << std::endl;
 }
 
 Character::~Character(void) {
-	// std::cout << "Destructor called" << std::endl;
+	std::cout << "Character : Destructor called" << std::endl;
 	for (int i = 0; i < 4; i++) {
 		if (this->_inventory[i]) {
 			delete this->_inventory[i];
@@ -31,7 +31,7 @@ Character::~Character(void) {
 }
 
 Character::Character(Character const & src) : _name(src.getName()) {
-	// std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Character : Copy constructor called" << std::endl;
 	for (int i = 0; i < 4; i++) {
 		if (this->_inventory[i]) {
 			delete this->_inventory[i];
@@ -44,7 +44,7 @@ Character::Character(Character const & src) : _name(src.getName()) {
 }
 
 Character & Character::operator=(Character const & src) {
-	// std::cout << "Assignment operator called" << std::endl;
+	std::cout << "Character : Assignment operator called" << std::endl;
 	this->_name = src.getName();
 	for (int i = 0; i < 4; i++) {
 		if (this->_inventory[i]) {

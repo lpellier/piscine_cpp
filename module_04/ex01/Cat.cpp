@@ -19,14 +19,14 @@ Cat::~Cat(void) {
 }
 
 Cat::Cat(Cat const & src) {
-	// std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Cat : Copy constructor called" << std::endl;
 	this->setType(src.getType());
 	this->_brain = new Brain();
 	*(this->_brain) = *(src.getBrain());
 }
 
 Cat & Cat::operator=(Cat const & src) {
-	// std::cout << "Assignment operator called" << std::endl;
+	std::cout << "Cat : Assignment operator called" << std::endl;
 	this->setType(src.getType());
 	this->_brain = new Brain();
 	*(this->_brain) = *(src.getBrain());

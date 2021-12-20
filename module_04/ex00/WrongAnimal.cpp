@@ -8,25 +8,25 @@
 //   \____)_____|_| |_|\___/|_| |_|_|\____)_____|\_)    |_|  |____/|_| |_|\____)  \__)_|\___/|_| |_(___/  //
 
 WrongAnimal::WrongAnimal(void) {
-	// std::cout << "Default constructor called" << std::endl;
+	std::cout << "WrongAnimal : Default constructor called" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(std::string type) : \
 	_type(type) {
-	// std::cout << "Parameter constructor called" << std::endl;
+	std::cout << "WrongAnimal : Parameter constructor called" << std::endl;
 }
 
 WrongAnimal::~WrongAnimal(void) {
-	// std::cout << "Destructor called" << std::endl;
+	std::cout << "WrongAnimal : Destructor called" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(WrongAnimal const & src) {
-	// std::cout << "Copy constructor called" << std::endl;
+	std::cout << "WrongAnimal : Copy constructor called" << std::endl;
 	this->_type = src.getType();
 }
 
 WrongAnimal & WrongAnimal::operator=(WrongAnimal const & src) {
-	// std::cout << "Assignment operator called" << std::endl;
+	std::cout << "WrongAnimal : Assignment operator called" << std::endl;
 	this->_type = src.getType();
 	return *this;
 }

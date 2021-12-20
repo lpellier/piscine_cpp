@@ -8,17 +8,17 @@
 //   \____)_____|_| |_|\___/|_| |_|_|\____)_____|\_)    |_|  |____/|_| |_|\____)  \__)_|\___/|_| |_(___/  //
 
 MateriaSource::MateriaSource(void) {
-	// std::cout << "Default constructor called" << std::endl;
+	std::cout << "MateriaSource : Default constructor called" << std::endl;
 	this->_materiaKnowledge = new AMateria *[4];
 }
 
-// MateriaSource::MateriaSource(AMateria ** materiaKnowledge) : \
-// 	_materiaKnowledge(materiaKnowledge) {
-// 	// std::cout << "Parameter constructor called" << std::endl;
-// }
+MateriaSource::MateriaSource(AMateria ** materiaKnowledge) : \
+	_materiaKnowledge(materiaKnowledge) {
+	std::cout << "MateriaSource : Parameter constructor called" << std::endl;
+}
 
 MateriaSource::~MateriaSource(void) {
-	// std::cout << "Destructor called" << std::endl;
+	std::cout << "MateriaSource : Destructor called" << std::endl;
 	for (int i = 0; i < 4; i++) {
 		if (this->_materiaKnowledge[i]) {
 			delete this->_materiaKnowledge[i];
@@ -29,16 +29,16 @@ MateriaSource::~MateriaSource(void) {
 	this->_materiaKnowledge = NULL;
 }
 
-// MateriaSource::MateriaSource(MateriaSource const & src) {
-// 	// std::cout << "Copy constructor called" << std::endl;
-// 	this->_materiaKnowledge = src.getMateriaKnowledge();
-// }
+MateriaSource::MateriaSource(MateriaSource const & src) {
+	std::cout << "MateriaSource : Copy constructor called" << std::endl;
+	this->_materiaKnowledge = src.getMateriaKnowledge();
+}
 
-// MateriaSource & MateriaSource::operator=(MateriaSource const & src) {
-// 	// std::cout << "Assignment operator called" << std::endl;
-// 	this->_materiaKnowledge = src.getMateriaKnowledge();
-// 	return *this;
-// }
+MateriaSource & MateriaSource::operator=(MateriaSource const & src) {
+	std::cout << "MateriaSource : Assignment operator called" << std::endl;
+	this->_materiaKnowledge = src.getMateriaKnowledge();
+	return *this;
+}
 
 //   _____  ____ ____ _____  ___  ___  ___   ____ ___  //
 //  (____ |/ ___) ___) ___ |/___)/___)/ _ \ / ___)___) //

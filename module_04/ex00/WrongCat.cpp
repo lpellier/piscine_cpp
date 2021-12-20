@@ -9,20 +9,20 @@
 
 WrongCat::WrongCat(void) {
 	this->_type = "WrongCat";
-	// std::cout << "Default constructor called" << std::endl;
+	std::cout << "WrongCat : Default constructor called" << std::endl;
 }
 
 WrongCat::~WrongCat(void) {
-	// std::cout << "Destructor called" << std::endl;
+	std::cout << "WrongCat : Destructor called" << std::endl;
 }
 
 WrongCat::WrongCat(WrongCat const & src) {
-	// std::cout << "Copy constructor called" << std::endl;
+	std::cout << "WrongCat : Copy constructor called" << std::endl;
 	this->setType(src.getType());
 }
 
 WrongCat & WrongCat::operator=(WrongCat const & src) {
-	// std::cout << "Assignment operator called" << std::endl;
+	std::cout << "WrongCat : Assignment operator called" << std::endl;
 	this->setType(src.getType());
 	return *this;
 }

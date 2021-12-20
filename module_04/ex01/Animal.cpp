@@ -13,7 +13,7 @@ Animal::Animal(void) {
 
 Animal::Animal(std::string type) : \
 	_type(type) {
-	// std::cout << "Parameter constructor called" << std::endl;
+	std::cout << "Animal : Parameter constructor called" << std::endl;
 }
 
 Animal::~Animal(void) {
@@ -21,12 +21,12 @@ Animal::~Animal(void) {
 }
 
 Animal::Animal(Animal const & src) {
-	// std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Animal : Copy constructor called" << std::endl;
 	this->_type = src.getType();
 }
 
 Animal & Animal::operator=(Animal const & src) {
-	// std::cout << "Assignment operator called" << std::endl;
+	std::cout << "Animal : Assignment operator called" << std::endl;
 	this->_type = src.getType();
 	return *this;
 }

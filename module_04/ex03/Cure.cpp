@@ -8,26 +8,26 @@
 //   \____)_____|_| |_|\___/|_| |_|_|\____)_____|\_)    |_|  |____/|_| |_|\____)  \__)_|\___/|_| |_(___/  //
 
 Cure::Cure(void) : AMateria("cure") {
-	// std::cout << "Default constructor called" << std::endl;
+	std::cout << "Cure : Default constructor called" << std::endl;
 }
 
-// Cure::Cure() {
-// 	// std::cout << "Parameter constructor called" << std::endl;
-// }
+Cure::Cure() {
+	std::cout << "Cure : Parameter constructor called" << std::endl;
+}
 
 Cure::~Cure(void) {
-	// std::cout << "Destructor called" << std::endl;
+	std::cout << "Cure : Destructor called" << std::endl;
 }
 
 Cure::Cure(Cure const & src) : AMateria(src) {
-	// std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Cure : Copy constructor called" << std::endl;
 }
 
-// Cure & Cure::operator=(Cure const & src) {
-// 	// std::cout << "Assignment operator called" << std::endl;
-// 	this->_type = src.getType();
-// 	return *this;
-// }
+Cure & Cure::operator=(Cure const & src) {
+	std::cout << "Cure : Assignment operator called" << std::endl;
+	this->_type = src.getType();
+	return *this;
+}
 
 //   _____  ____ ____ _____  ___  ___  ___   ____ ___  //
 //  (____ |/ ___) ___) ___ |/___)/___)/ _ \ / ___)___) //

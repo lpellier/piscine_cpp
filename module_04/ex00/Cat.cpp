@@ -8,21 +8,21 @@
 //   \____)_____|_| |_|\___/|_| |_|_|\____)_____|\_)    |_|  |____/|_| |_|\____)  \__)_|\___/|_| |_(___/  //
 
 Cat::Cat(void) {
-	// std::cout << "Default constructor called" << std::endl;
+	std::cout << "Cat : Default constructor called" << std::endl;
 	this->_type = "Cat";
 }
 
 Cat::~Cat(void) {
-	// std::cout << "Destructor called" << std::endl;
+	std::cout << "Cat : Destructor called" << std::endl;
 }
 
 Cat::Cat(Cat const & src) {
-	// std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Cat : Copy constructor called" << std::endl;
 	this->setType(src.getType());
 }
 
 Cat & Cat::operator=(Cat const & src) {
-	// std::cout << "Assignment operator called" << std::endl;
+	std::cout << "Cat : Assignment operator called" << std::endl;
 	this->setType(src.getType());
 	return *this;
 }
