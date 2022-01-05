@@ -16,7 +16,7 @@ public:
 	// parameter constructor
 	PresidentialPardonForm(std::string target);
 	// destructor
-	~PresidentialPardonForm(void);
+	virtual ~PresidentialPardonForm(void);
 	// copy constructor
 	PresidentialPardonForm(PresidentialPardonForm const & src);
 	// assignment operator
@@ -25,7 +25,7 @@ public:
 	// accessors
 	std::string	getTarget(void) const;
 	// mutators
-	void			setTarget(std::string target);
+	void			setTarget(const std::string & target);
 
 	// methods
 	void			execute(Bureaucrat const & executor) const;

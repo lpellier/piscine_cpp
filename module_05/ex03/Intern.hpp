@@ -3,14 +3,14 @@
 
 #include "PresidentialPardonForm.hpp"
 
-struct testStruct {
+struct formStruct {
 	std::string	formName;
 	Form	*form;
 };
 
 class Intern {
 private:
-	testStruct forms[3];
+	formStruct forms[3];
 public:
 	// default constructor
 	Intern(void);

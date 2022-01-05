@@ -1,14 +1,17 @@
+#pragma once
+
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
+#include "Form.hpp"
+
 #include <iostream>
 #include <string>
-#include "Form.hpp"
 
 class Form;
 
 class Bureaucrat {
-private:
+protected:
 	// data
 	std::string const	_name;
 	int				_grade;
@@ -35,6 +38,7 @@ public:
 	void				signForm(Form & form);
 	void				executeForm(Form const & form) const;
 
+	// exceptions
 	class	GradeTooLowException : public std::exception {
 		public:
 			virtual const char * what() const throw() {

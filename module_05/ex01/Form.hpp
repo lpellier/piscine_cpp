@@ -1,7 +1,12 @@
+#pragma once
+
 #ifndef FORM_HPP
 # define FORM_HPP
 
 #include "Bureaucrat.hpp"
+
+#include <iostream>
+#include <string>
 
 class Bureaucrat;
 
@@ -21,9 +26,9 @@ public:
 	// destructor
 	~Form(void);
 	// copy constructor
-	// Form(Form const & src);
+	Form(Form const & src);
 	// assignment operator
-	// Form & operator=(Form const & src);
+	Form & operator=(Form const & src);
 
 	// accessors
 	std::string const	getName(void) const;

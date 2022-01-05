@@ -16,7 +16,7 @@ public:
 	// parameter constructor
 	PresidentialPardonForm(std::string target);
 	// destructor
-	~PresidentialPardonForm(void);
+	virtual ~PresidentialPardonForm(void);
 	// copy constructor
 	PresidentialPardonForm(PresidentialPardonForm const & src);
 	// assignment operator

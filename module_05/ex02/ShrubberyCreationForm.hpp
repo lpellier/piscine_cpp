@@ -15,7 +15,7 @@ public:
 	// parameter constructor
 	ShrubberyCreationForm(std::string target);
 	// destructor
-	~ShrubberyCreationForm(void);
+	virtual ~ShrubberyCreationForm(void);
 	// copy constructor
 	ShrubberyCreationForm(ShrubberyCreationForm const & src);
 	// assignment operator

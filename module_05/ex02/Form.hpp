@@ -1,7 +1,12 @@
+#pragma once
+
 #ifndef FORM_HPP
 # define FORM_HPP
 
 #include "Bureaucrat.hpp"
+
+#include <iostream>
+#include <string>
 
 class Bureaucrat;
 
@@ -19,11 +24,11 @@ public:
 	// parameter constructor
 	Form(std::string const name, int const signatureGrade, int const executionGrade);
 	// destructor
-	~Form(void);
+	virtual ~Form(void);
 	// copy constructor
-	// Form(Form const & src);
+	Form(Form const & src);
 	// assignment operator
-	// Form & operator=(Form const & src);
+	Form & operator=(Form const & src);
 
 	// accessors
 	std::string const	getName(void) const;
@@ -42,7 +47,7 @@ public:
 	class	GradeTooLowException : public std::exception {
 		public:
 			virtual const char * what() const throw() {
-				return ("Grade is too low for minimum signature/execution grade");
+				return ("Grade is too low for minimum signature grade");
 			}
 	};
 	
@@ -52,7 +57,6 @@ public:
 				return ("Grade is too high (1 - 150)");
 			}
 	};
-	
 	class	FormNotSignedException : public std::exception {
 		public:
 			virtual const char * what() const throw() {

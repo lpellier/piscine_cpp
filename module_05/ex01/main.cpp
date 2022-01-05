@@ -16,22 +16,40 @@ int main(void) {
 	Form	masterForm("masterForm", 1, 1);
 
 	std::cout << basicForm << basic;
-	basicForm.beSigned(basic);
+	try {
+		basicForm.beSigned(basic);
+		std::cout << "expert form signed by basic" << std::endl;
+	} catch (std::exception & e) {
+		std::cout << e.what() << std::endl; 
+	}
 	std::cout << basicForm;
 	std::cout << std::endl;
 
 	std::cout << expertForm << moderate;
-	expertForm.beSigned(moderate);
+	try {
+		expertForm.beSigned(moderate);
+		std::cout << "expert form signed by moderate" << std::endl;
+	} catch (std::exception & e) {
+		std::cout << e.what() << std::endl; 
+	}
 	std::cout << expertForm;
 	std::cout << std::endl;
 
 	std::cout << moderateForm << expert; 
-	expert.signForm(moderateForm);
+	try {
+		expert.signForm(moderateForm);
+	} catch (std::exception & e) {
+		std::cout << e.what() << std::endl; 
+	}
 	std::cout << moderateForm;
 	std::cout << std::endl;
 
+	try {
+		expert.signForm(masterForm);
+	} catch (std::exception & e) {
+		std::cout << e.what() << std::endl; 
+	}
 	std::cout << masterForm << expert; 
-	expert.signForm(masterForm);
 	std::cout << masterForm;
 	std::cout << std::endl;
 }

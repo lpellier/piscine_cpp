@@ -20,16 +20,16 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void) {
 	// std::cout << "Destructor called" << std::endl;
 }
 
-// ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src) {
-// 	// std::cout << "Copy constructor called" << std::endl;
-// 	this->_target = src.getTarget();
-// }
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src) : Form("shrubberyCreationForm", 145, 137), _target("null") {
+	// std::cout << "Copy constructor called" << std::endl;
+	this->_target = src.getTarget();
+}
 
-// ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm const & src) {
-// 	// std::cout << "Assignment operator called" << std::endl;
-// 	this->_target = src.getTarget();
-// 	return *this;
-// }
+ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm const & src) {
+	// std::cout << "Assignment operator called" << std::endl;
+	this->_target = src.getTarget();
+	return *this;
+}
 
 //   _____  ____ ____ _____  ___  ___  ___   ____ ___  //
 //  (____ |/ ___) ___) ___ |/___)/___)/ _ \ / ___)___) //

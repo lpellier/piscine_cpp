@@ -24,14 +24,16 @@ Intern::~Intern(void) {
 	}
 }
 
-// Intern::Intern(Intern const & src) {
-// 	// std::cout << "Copy constructor called" << std::endl;
-// }
+Intern::Intern(Intern const & src) {
+	(void)src;
+	// std::cout << "Copy constructor called" << std::endl;
+}
 
-// Intern & Intern::operator=(Intern const & src) {
-// 	// std::cout << "Assignment operator called" << std::endl;
-// 	return *this;
-// }
+Intern & Intern::operator=(Intern const & src) {
+	(void)src;
+	// std::cout << "Assignment operator called" << std::endl;
+	return *this;
+}
 
 //   _____  ____ ____ _____  ___  ___  ___   ____ ___  //
 //  (____ |/ ___) ___) ___ |/___)/___)/ _ \ / ___)___) //

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
 #include <ctime>
 #include "ShrubberyCreationForm.hpp"
 
@@ -17,7 +18,7 @@ public:
 	// parameter constructor
 	RobotomyRequestForm(std::string target);
 	// destructor
-	~RobotomyRequestForm(void);
+	virtual ~RobotomyRequestForm(void);
 	// copy constructor
 	RobotomyRequestForm(RobotomyRequestForm const & src);
 	// assignment operator
@@ -26,7 +27,7 @@ public:
 	// accessors
 	std::string	getTarget(void) const;
 	// mutators
-	void			setTarget(std::string target);
+	void			setTarget(const std::string & target);
 
 	// methods
 	void	execute(Bureaucrat const & executor) const;

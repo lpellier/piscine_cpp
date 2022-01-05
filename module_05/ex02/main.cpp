@@ -6,30 +6,58 @@ int main(void) {
 		ShrubberyCreationForm test("shrubman");
 
 		executor.signForm(test);
-		test.execute(executor);
+		try {
+			test.execute(executor);
+		}
+		catch (std::exception & e) {
+			std::cout << e.what() << std::endl;
+		}
 		std::cout << std::endl;
-		executor.executeForm(test);
+		try {
+			executor.executeForm(test);
+		}
+		catch (std::exception & e) {
+			std::cout << executor.getName() << " couldn't execute " << test.getName() << std::endl;
+		}
 	}
 	std::cout << std::endl;
-	std::cout << std::endl;
 	{
-		Bureaucrat	executor("executor", 100);
+		Bureaucrat	executor("executor", 1);
 		RobotomyRequestForm test("michel");
 
 		executor.signForm(test);
-		test.execute(executor);
+		try {
+			test.execute(executor);
+		}
+		catch (std::exception & e) {
+			std::cout << e.what() << std::endl;
+		}
 		std::cout << std::endl;
-		executor.executeForm(test);
+		try {
+			executor.executeForm(test);
+		}
+		catch (std::exception & e) {
+			std::cout << executor.getName() << " couldn't execute " << test.getName() << std::endl;
+		}
 	}
-	std::cout << std::endl;
 	std::cout << std::endl;
 	{
 		Bureaucrat	executor("executor", 5);
 		PresidentialPardonForm test("turkey");
 
 		executor.signForm(test);
-		test.execute(executor);
+		try {
+			test.execute(executor);
+		}
+		catch (std::exception & e) {
+			std::cout << e.what() << std::endl;
+		}
 		std::cout << std::endl;
-		executor.executeForm(test);
+		try {
+			executor.executeForm(test);
+		}
+		catch (std::exception & e) {
+			std::cout << executor.getName() << " couldn't execute " << test.getName() << std::endl;
+		}
 	}
 }

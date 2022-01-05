@@ -7,7 +7,7 @@
 //  ( (___/ ___ | | | | |_| | | | | ( (___/ ___ | |     | |  | |_| | | | ( (___  | |_| | |_| | | | |___ | //
 //   \____)_____|_| |_|\___/|_| |_|_|\____)_____|\_)    |_|  |____/|_| |_|\____)  \__)_|\___/|_| |_(___/  //
 
-PresidentialPardonForm::PresidentialPardonForm(void) : Form("presidentialPardonForm", 25, 5), _target("null") {
+PresidentialPardonForm::PresidentialPardonForm(void) : Form("presidentialPardonForm", 25, 5) {
 	// std::cout << "Default constructor called" << std::endl;
 }
 
@@ -20,16 +20,16 @@ PresidentialPardonForm::~PresidentialPardonForm(void) {
 	// std::cout << "Destructor called" << std::endl;
 }
 
-// PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & src) {
-// 	// std::cout << "Copy constructor called" << std::endl;
-// 	this->_target = src.getTarget();
-// }
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & src) : Form("presidentialPardonForm", 25, 5), _target("null") {
+	// std::cout << "Copy constructor called" << std::endl;
+	this->_target = src.getTarget();
+}
 
-// PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonForm const & src) {
-// 	// std::cout << "Assignment operator called" << std::endl;
-// 	this->_target = src.getTarget();
-// 	return *this;
-// }
+PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonForm const & src) {
+	// std::cout << "Assignment operator called" << std::endl;
+	this->_target = src.getTarget();
+	return *this;
+}
 
 //   _____  ____ ____ _____  ___  ___  ___   ____ ___  //
 //  (____ |/ ___) ___) ___ |/___)/___)/ _ \ / ___)___) //
@@ -46,7 +46,7 @@ std::string	PresidentialPardonForm::getTarget(void) const {
 //  | | | | |_| | | |_/ ___ | | || |_| | |  |___ | //
 //  |_|_|_|____/   \__)_____|  \__)___/|_|  (___/  //
 
-void			PresidentialPardonForm::setTarget(std::string target) {
+void			PresidentialPardonForm::setTarget(const std::string & target) {
 	this->_target = target;
 }
 

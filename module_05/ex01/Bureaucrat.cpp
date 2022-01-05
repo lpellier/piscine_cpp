@@ -12,18 +12,13 @@ Bureaucrat::Bureaucrat(void) : _name("null"), _grade(1) {
 }
 
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name) {
-	try {
-		if (grade < 1) {
-			throw GradeTooLowException();
-		} else if (grade > 150) {
-			throw GradeTooHighException();
-		} else {
-			this->_grade = grade;
-		}
-	} catch (std::exception & e) {
-		this->_grade = 0;
-		std::cout << e.what() << std::endl << "Please instantiate a correct Bureaucrat." << std::endl;
-	}
+	_grade = 0;
+	if (grade < 1)
+		throw GradeTooLowException();
+	else if (grade > 150)
+		throw GradeTooHighException();
+	else
+		this->_grade = grade;
 	// std::cout << "Parameter constructor called" << std::endl;
 }
 
@@ -70,18 +65,30 @@ int				Bureaucrat::getGrade(void) const {
 void			Bureaucrat::decrementGrade(void) {
 	if (this->_grade < 150)
 		this->_grade++;
+	else
+		throw GradeTooLowException();
 }
 
 void			Bureaucrat::incrementGrade(void) {
 	if (this->_grade > 1)
 		this->_grade--;
+	else
+		throw GradeTooHighException();
 }
 
 void			Bureaucrat::signForm(Form & form) {
-	if (this->_grade <= form.getSignatureGrade()) {
+	if (this->_grade <= form.getSignatureGrade() && form.getIsSigned() == false) {
 		form.setIsSigned(true);
 		std::cout << this->_name << ", bureaucrat signs form " << form.getName() << std::endl;
-	} else {
+	}
+	else if (this->_grade > form.getSignatureGrade() && form.getIsSigned() == false) {
 		std::cout << this->_name << ", bureaucrat cannot sign form " << form.getName() << " because of grade too low" << std::endl;
 	}
+	else if (this->_grade <= form.getSignatureGrade() && form.getIsSigned() == false) {
+		std::cout << this->_name << ", bureaucrat cannot sign form " << form.getName() << " because form already signed" << std::endl;
+	}
+	else {
+		std::cout << this->_name << ", bureaucrat cannot sign form " << form.getName() << " because of many reasons" << std::endl;
+	}
 }
+

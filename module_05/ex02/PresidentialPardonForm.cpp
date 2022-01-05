@@ -20,16 +20,16 @@ PresidentialPardonForm::~PresidentialPardonForm(void) {
 	// std::cout << "Destructor called" << std::endl;
 }
 
-// PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & src) {
-// 	// std::cout << "Copy constructor called" << std::endl;
-// 	this->_target = src.getTarget();
-// }
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & src) : Form("presidentialPardonForm", 25, 5), _target("null") {
+	// std::cout << "Copy constructor called" << std::endl;
+	this->_target = src.getTarget();
+}
 
-// PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonForm const & src) {
-// 	// std::cout << "Assignment operator called" << std::endl;
-// 	this->_target = src.getTarget();
-// 	return *this;
-// }
+PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonForm const & src) {
+	// std::cout << "Assignment operator called" << std::endl;
+	this->_target = src.getTarget();
+	return *this;
+}
 
 //   _____  ____ ____ _____  ___  ___  ___   ____ ___  //
 //  (____ |/ ___) ___) ___ |/___)/___)/ _ \ / ___)___) //

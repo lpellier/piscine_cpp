@@ -31,25 +31,22 @@ Form::~Form(void) {
 	// std::cout << "Destructor called" << std::endl;
 }
 
-// Form::Form(Form const & src) {
-// 	// std::cout << "Copy constructor called" << std::endl;
-// 	this->_name = src.getName();
-// 	this->_isSigned = src.getIsSigned();
-// 	this->_signatureGrade = src.getSignatureGrade();
-// 	this->_executionGrade = src.getExecutionGrade();
-// }
+Form::Form(Form const & src) : _name(src._name), _isSigned(src._isSigned), _signatureGrade(src._signatureGrade), _executionGrade(src._executionGrade) {
+	// std::cout << "Copy constructor called" << std::endl;
 
-// Form & Form::operator=(Form const & src) {
-// 	// std::cout << "Assignment operator called" << std::endl;
-// 	this->_name = src.getName();
-// 	this->_isSigned = src.getIsSigned();
-// 	this->_signatureGrade = src.getSignatureGrade();
-// 	this->_executionGrade = src.getExecutionGrade();
-// 	return *this;
-// }
+}
+
+Form & Form::operator=(Form const & src) {
+	(void)src;
+	// std::cout << "Assignment operator called" << std::endl;
+	// this->_signatureGrade = src.getSignatureGrade();
+	// this->_executionGrade = src.getExecutionGrade();
+	return *this;
+}
 
 std::ostream &		operator<<(std::ostream & out, Form & src) {
-	out << src.getName() << ", form : min grade for signature " << src.getSignatureGrade() << ", min grade for execution " << src.getExecutionGrade() << ". Signed ? " << src.getIsSigned() << std::endl;
+	out << src.getName() << ", form : min grade for signature " << src.getSignatureGrade() << ", min grade for execution " << src.getExecutionGrade() << \
+	". Signed ? " << (src.getIsSigned() ? "yes" : "no") << std::endl;
 	return (out);
 }
 
@@ -93,12 +90,8 @@ void				Form::setIsSigned(bool isSigned) {
 //  |_|_|_|_____)  \__)_| |_|\___/ \____(___/  //
 
 void				Form::beSigned(Bureaucrat & bureaucrat) {
-	try {
-		if (bureaucrat.getGrade() <= this->_signatureGrade)
-			this->_isSigned = true;
-		else
-			throw GradeTooLowException();
-	} catch (std::exception & e) {
-		std::cout << e.what() << std::endl; 
-	}
+	if (bureaucrat.getGrade() <= this->_signatureGrade)
+		this->_isSigned = true;
+	else
+		throw GradeTooLowException();
 }
