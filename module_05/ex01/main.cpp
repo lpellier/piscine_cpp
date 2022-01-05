@@ -6,8 +6,13 @@ int main(void) {
 	Bureaucrat expert("expert", 50);
 	Bureaucrat master("master", 1);
 
-	Form	fakeForm("fakeForm", -1, 120);
-	Form	wrongForm("wrongForm", 160, 10);
+	try {
+		Form	fakeForm("fakeForm", -1, 120);
+		Form	wrongForm("wrongForm", 160, 10);
+	}
+	catch (std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << std::endl;
 
 	Form	basicForm("basicForm", 150, 100);

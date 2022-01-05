@@ -26,14 +26,15 @@ Bureaucrat::~Bureaucrat(void) {
 	// std::cout << "Destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const & src) {
+Bureaucrat::Bureaucrat(Bureaucrat const & src) : _name(src.getName()), _grade(src._grade) {
 	// std::cout << "Copy constructor called" << std::endl;
-	this->_grade = src.getGrade();
+	// this->_grade = src.getGrade();
 }
 
 Bureaucrat & Bureaucrat::operator=(Bureaucrat const & src) {
 	// std::cout << "Assignment operator called" << std::endl;
 	this->_grade = src.getGrade();
+	// new (this) Bureaucrat(src);
 	return *this;
 }
 
@@ -84,7 +85,7 @@ void			Bureaucrat::signForm(Form & form) {
 	else if (this->_grade > form.getSignatureGrade() && form.getIsSigned() == false) {
 		std::cout << this->_name << ", bureaucrat cannot sign form " << form.getName() << " because of grade too low" << std::endl;
 	}
-	else if (this->_grade <= form.getSignatureGrade() && form.getIsSigned() == false) {
+	else if (this->_grade <= form.getSignatureGrade() && form.getIsSigned() == true) {
 		std::cout << this->_name << ", bureaucrat cannot sign form " << form.getName() << " because form already signed" << std::endl;
 	}
 	else {

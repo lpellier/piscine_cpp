@@ -13,16 +13,10 @@ Form::Form(void) : _name("null"), _isSigned(false), _signatureGrade(150), _execu
 
 Form::Form(std::string const name, int const signatureGrade, int const executionGrade) : \
 	_name(name), _isSigned(false), _signatureGrade(signatureGrade), _executionGrade(executionGrade) {
-	try {
-		if (signatureGrade < 1 || executionGrade < 1) {
-			throw GradeTooLowException();
-		} else if (signatureGrade > 150 || executionGrade > 150) {
-			throw GradeTooHighException();
-		}
-	} catch (GradeTooLowException & e) {
-		std::cout << "Grade is too low (1 - 150)" << std::endl;
-	} catch (std::exception & e) {
-		std::cout << e.what() << std::endl;
+	if (signatureGrade < 1 || executionGrade < 1) {
+		throw GradeTooHighException();
+	} else if (signatureGrade > 150 || executionGrade > 150) {
+		throw GradeTooLowException();
 	}
 	// std::cout << "Parameter constructor called" << std::endl;
 }

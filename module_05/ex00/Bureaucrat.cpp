@@ -14,9 +14,9 @@ Bureaucrat::Bureaucrat(void) : _name("null"), _grade(1) {
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name) {
 	_grade = 0;
 	if (grade < 1)
-		throw GradeTooLowException();
-	else if (grade > 150)
 		throw GradeTooHighException();
+	else if (grade > 150)
+		throw GradeTooLowException();
 	else
 		this->_grade = grade;
 	// std::cout << "Parameter constructor called" << std::endl;
@@ -26,14 +26,15 @@ Bureaucrat::~Bureaucrat(void) {
 	// std::cout << "Destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const & src) {
+Bureaucrat::Bureaucrat(Bureaucrat const & src) : _name(src.getName()), _grade(src._grade) {
 	// std::cout << "Copy constructor called" << std::endl;
-	this->_grade = src.getGrade();
+	// this->_grade = src.getGrade();
 }
 
 Bureaucrat & Bureaucrat::operator=(Bureaucrat const & src) {
 	// std::cout << "Assignment operator called" << std::endl;
 	this->_grade = src.getGrade();
+	// new (this) Bureaucrat(src);
 	return *this;
 }
 
