@@ -27,7 +27,7 @@ public:
 	void			setType(std::string type);
 
 	// methods
-	virtual void	makeSound() const;
+	void	makeSound() const;
 };
 
 #endif

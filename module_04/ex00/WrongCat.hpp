@@ -16,8 +16,7 @@ public:
 	// assignment operator
 	WrongCat & operator=(WrongCat const & src);
 
-	// methods
-	using	WrongAnimal::makeSound;
+	void	makeSound() const;
 };
 
 #endif

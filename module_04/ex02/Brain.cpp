@@ -15,25 +15,27 @@ Brain::~Brain(void) {
 	std::cout << "Brain deleted" << std::endl;
 }
 
-// Brain::Brain(Brain const & src) {
-// 	// std::cout << "Copy constructor called" << std::endl;
-// 	this->_ideas[100] = src.getIdeas[100]();
-// }
+Brain::Brain(Brain const & src) {
+	std::cout << "Brain : Copy constructor called" << std::endl;
+	for (int i = 0; i < 100; i++)
+		this->_ideas[i] = src.getIdeas()[i];
+}
 
-// Brain & Brain::operator=(Brain const & src) {
-// 	// std::cout << "Assignment operator called" << std::endl;
-// 	this->_ideas[100] = src.getIdeas[100]();
-// 	return *this;
-// }
+Brain & Brain::operator=(Brain const & src) {
+	std::cout << "Brain : Assignment operator called" << std::endl;
+	for (int i = 0; i < 100; i++)
+		this->_ideas[i] = src.getIdeas()[i];
+	return *this;
+}
 
 //   _____  ____ ____ _____  ___  ___  ___   ____ ___  //
 //  (____ |/ ___) ___) ___ |/___)/___)/ _ \ / ___)___) //
 //  / ___ ( (__( (___| ____|___ |___ | |_| | |  |___ | //
 //  \_____|\____)____)_____|___/(___/ \___/|_|  (___/  //
 
-// std::string	Brain::getIdeas(void) const {
-// 	return this->_ideas;
-// }
+const std::string	* Brain::getIdeas(void) const {
+	return static_cast<const std::string *>(this->_ideas);
+}
 
 //                 _           _                   //
 //   ____  _   _ _| |_ _____ _| |_ ___   ____ ___  //

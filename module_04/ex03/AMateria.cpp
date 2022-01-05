@@ -11,8 +11,7 @@ AMateria::AMateria(void) {
 	std::cout << "AMateria : Default constructor called" << std::endl;
 }
 
-AMateria::AMateria(std::string const & type) : \
-	_type(type) {
+AMateria::AMateria(std::string const & type) : _type(type) {
 	std::cout << "AMateria : Parameter constructor called" << std::endl;
 }
 
@@ -20,15 +19,15 @@ AMateria::~AMateria(void) {
 	std::cout << "AMateria : Destructor called" << std::endl;
 }
 
-AMateria::AMateria(AMateria const & src) : _type(src.getType()) {
+AMateria::AMateria(AMateria const & src) {
+	(void)src;
 	std::cout << "AMateria : Copy constructor called" << std::endl;
-	// this = src.clone();
 }
 
 AMateria & AMateria::operator=(AMateria const & src) {
+	(void)src;
 	std::cout << "AMateria : Assignment operator called" << std::endl;
-	// this->_type = src.getType();
-	return *(src.clone());
+	return *this;
 }
 
 //   _____  ____ ____ _____  ___  ___  ___   ____ ___  //

@@ -15,7 +15,7 @@ public:
 	// parameter constructor
 	Animal(std::string type);
 	// destructor
-	~Animal(void);
+	virtual ~Animal(void);
 	// copy constructor
 	Animal(Animal const & src);
 	// assignment operator

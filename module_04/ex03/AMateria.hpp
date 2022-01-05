@@ -9,7 +9,7 @@ class ICharacter;
 class AMateria {
 protected:
 	// data
-	std::string	_type;
+	const std::string	_type;
 
 public:
 	// default constructor

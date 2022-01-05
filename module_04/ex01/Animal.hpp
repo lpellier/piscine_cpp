@@ -17,6 +17,7 @@ public:
 	Animal(std::string type);
 	// destructor
 	virtual ~Animal(void);
+	// if this isnt virtual, when an instance of Animal * is deleted, this destructor will be called instead of the derived class
 	// copy constructor
 	Animal(Animal const & src);
 	// assignment operator

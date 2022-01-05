@@ -8,21 +8,21 @@
 //   \____)_____|_| |_|\___/|_| |_|_|\____)_____|\_)    |_|  |____/|_| |_|\____)  \__)_|\___/|_| |_(___/  //
 
 Dog::Dog(void) {
-	// std::cout << "Default constructor called" << std::endl;
+	std::cout << "Dog : Default constructor called" << std::endl;
 	this->_type = "Dog";
 }
 
 Dog::~Dog(void) {
-	// std::cout << "Destructor called" << std::endl;
+	std::cout << "Dog : Destructor called" << std::endl;
 }
 
 Dog::Dog(Dog const & src) {
-	// std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Dog : Copy constructor called" << std::endl;
 	this->setType(src.getType());
 }
 
 Dog & Dog::operator=(Dog const & src) {
-	// std::cout << "Assignment operator called" << std::endl;
+	std::cout << "Dog : Assignment operator called" << std::endl;
 	this->setType(src.getType());
 	return *this;
 }

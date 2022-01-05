@@ -7,14 +7,12 @@ class Cure : public AMateria {
 public:
 	// default constructor
 	Cure(void);
-	// parameter constructor
-	// Cure();
 	// destructor
-	~Cure(void);
+	virtual ~Cure(void);
 	// copy constructor
 	Cure(Cure const & src);
 	// assignment operator
-	// Cure & operator=(Cure const & src);
+	Cure & operator=(Cure const & src);
 
 	// methods
 	virtual AMateria *		clone() const;

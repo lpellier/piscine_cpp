@@ -7,7 +7,7 @@
 //  ( (___/ ___ | | | | |_| | | | | ( (___/ ___ | |     | |  | |_| | | | ( (___  | |_| | |_| | | | |___ | //
 //   \____)_____|_| |_|\___/|_| |_|_|\____)_____|\_)    |_|  |____/|_| |_|\____)  \__)_|\___/|_| |_(___/  //
 
-Animal::Animal(void) _type("(null)") {
+Animal::Animal(void) : _type("(null)") {
 	std::cout << "Animal : Default constructor called" << std::endl;
 }
 

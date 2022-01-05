@@ -10,11 +10,15 @@
 Character::Character(void) : _name("null") {
 	std::cout << "Character : Default constructor called" << std::endl;
 	this->_inventory = new AMateria *[4];
+	for (int i = 0; i < 4; i++)
+		this->_inventory[i] = NULL;
 }
 
 Character::Character(std::string const & name) : \
 	_name(name) {
 	this->_inventory = new AMateria *[4];
+	for (int i = 0; i < 4; i++)
+		this->_inventory[i] = NULL;
 	std::cout << "Character : Parameter constructor called" << std::endl;
 }
 
@@ -36,11 +40,10 @@ Character::Character(Character const & src) : _name(src.getName()) {
 		if (this->_inventory[i]) {
 			delete this->_inventory[i];
 			this->_inventory[i] = NULL;
- 		}
+		}
 	}
-	for (int i = 0; i < 4; i++) {
+	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = src.getInventory()[i]->clone();
-	}
 }
 
 Character & Character::operator=(Character const & src) {
@@ -52,9 +55,8 @@ Character & Character::operator=(Character const & src) {
 			this->_inventory[i] = NULL;
 		}
 	}
-	for (int i = 0; i < 4; i++) {
+	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = src.getInventory()[i]->clone();
-	}
 	return *this;
 }
 

@@ -10,7 +10,7 @@ public:
 	// default constructor
 	Cat(void);
 	// destructor
-	~Cat(void);
+	virtual ~Cat(void);
 	// copy constructor
 	Cat(Cat const & src);
 	// assignment operator

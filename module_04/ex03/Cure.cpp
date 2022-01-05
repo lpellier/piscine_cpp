@@ -11,21 +11,18 @@ Cure::Cure(void) : AMateria("cure") {
 	std::cout << "Cure : Default constructor called" << std::endl;
 }
 
-Cure::Cure() {
-	std::cout << "Cure : Parameter constructor called" << std::endl;
-}
-
 Cure::~Cure(void) {
 	std::cout << "Cure : Destructor called" << std::endl;
 }
 
 Cure::Cure(Cure const & src) : AMateria(src) {
+	(void)src;
 	std::cout << "Cure : Copy constructor called" << std::endl;
 }
 
 Cure & Cure::operator=(Cure const & src) {
+	(void)src;
 	std::cout << "Cure : Assignment operator called" << std::endl;
-	this->_type = src.getType();
 	return *this;
 }
 

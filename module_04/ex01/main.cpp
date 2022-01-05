@@ -4,6 +4,12 @@
 
 int main() {
 	{
+		const Animal* j = new Dog();
+		const Animal* i = new Cat();
+		delete j;//should not create a leak
+		delete i;
+	}
+	{
 		std::cout << "Deep Copy Test" << std::endl;
 		Dog DogOne;
 		Dog DogTwo = DogOne;

@@ -2,11 +2,12 @@
 
 
 int main() {
-	{
-		Animal test;
+	// uncomment for compil error
+	// {
+	// 	Animal test;
 
-		test.makeSound();
-	}
+	// 	test.makeSound();
+	// }
 	{
 		Animal* test = new Dog();
 

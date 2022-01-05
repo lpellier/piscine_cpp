@@ -13,8 +13,6 @@ private:
 public:
 	// default constructor
 	MateriaSource(void);
-	// parameter constructor
-	// MateriaSource(AMateria ** materiaKnowledge);
 	// destructor
 	~MateriaSource(void);
 	// copy constructor

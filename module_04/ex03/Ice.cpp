@@ -11,22 +11,19 @@ Ice::Ice(void) : AMateria("ice") {
 	std::cout << "Ice : Default constructor called" << std::endl;
 }
 
-Ice::Ice() {
-	std::cout << "Ice : Parameter constructor called" << std::endl;
-}
-
 Ice::~Ice(void) {
 	std::cout << "Ice : Destructor called" << std::endl;
 }
 
 Ice::Ice(Ice const & src) : AMateria(src) {
+	(void)src;
 	std::cout << "Ice : Copy constructor called" << std::endl;
 }
 
 Ice & Ice::operator=(Ice const & src) {
+	(void)src;
 	std::cout << "Ice : Assignment operator called" << std::endl;
-	this->_type = src.getType();
-	return (src.clone());
+	return (*this);
 }
 
 //   _____  ____ ____ _____  ___  ___  ___   ____ ___  //

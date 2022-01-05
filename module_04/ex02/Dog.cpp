@@ -19,14 +19,14 @@ Dog::~Dog(void) {
 }
 
 Dog::Dog(Dog const & src) {
-	// std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Dog : Copy constructor called" << std::endl;
 	this->setType(src.getType());
 	this->_brain = new Brain();
 	*(this->_brain) = *(src.getBrain());
 }
 
 Dog & Dog::operator=(Dog const & src) {
-	// std::cout << "Assignment operator called" << std::endl;
+	std::cout << "Dog : Assignment operator called" << std::endl;
 	this->setType(src.getType());
 	this->_brain = new Brain();
 	*(this->_brain) = *(src.getBrain());

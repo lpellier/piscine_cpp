@@ -45,3 +45,6 @@ WrongCat & WrongCat::operator=(WrongCat const & src) {
 //  | | | | ____| | |_| | | | |_| ( (_| |___ | //
 //  |_|_|_|_____)  \__)_| |_|\___/ \____(___/  //
 
+void			WrongCat::makeSound() const {
+	std::cout << "Miaou" << std::endl;
+}

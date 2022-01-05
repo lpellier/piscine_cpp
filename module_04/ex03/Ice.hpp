@@ -7,14 +7,12 @@ class Ice : public AMateria {
 public:
 	// default constructor
 	Ice(void);
-	// parameter constructor
-	// Ice();
 	// destructor
-	~Ice(void);
+	virtual ~Ice(void);
 	// copy constructor
 	Ice(Ice const & src);
 	// assignment operator
-	// Ice & operator=(Ice const & src);
+	Ice & operator=(Ice const & src);
 
 
 	// methods

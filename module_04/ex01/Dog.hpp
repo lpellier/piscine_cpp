@@ -10,7 +10,7 @@ public:
 	// default constructor
 	Dog(void);
 	// destructor
-	~Dog(void);
+	virtual ~Dog(void);
 	// copy constructor
 	Dog(Dog const & src);
 	// assignment operator
