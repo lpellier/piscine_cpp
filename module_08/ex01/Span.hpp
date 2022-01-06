@@ -31,7 +31,7 @@ public:
 
 	// methods
 	void				addNumber(const int toBeAdded);
-	void				addNumber(std::vector<int> & toBeAdded);
+	void				addNumber(std::vector<int>::iterator _begin, std::vector<int>::iterator _end);
 	unsigned int		shortestSpan(void) const;
 	unsigned int		longestSpan(void) const;
 };

@@ -75,6 +75,7 @@
 		"compare": "cpp",
 		"concepts": "cpp",
 		"memory_resource": "cpp",
-		"ranges": "cpp"
+		"ranges": "cpp",
+		"__bits": "cpp"
 	}
 }
