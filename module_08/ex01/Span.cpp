@@ -22,11 +22,13 @@ Span::~Span(void) {
 Span::Span(Span const & src) {
 	// std::cout << "Copy constructor called" << std::endl;
 	this->_storage = src.getStorage();
+	_max = src._max;
 }
 
 Span & Span::operator=(Span const & src) {
 	// std::cout << "Assignment operator called" << std::endl;
 	this->_storage = src.getStorage();
+	_max = src._max;
 	return *this;
 }
 
@@ -50,12 +52,14 @@ void				Span::addNumber(const int toBeAdded) {
 	if (this->_storage.size() == this->_max)
 		throw std::exception();
 	this->_storage.push_back(toBeAdded);
+	std::sort(_storage.begin(), _storage.end());
 }
 
-void				Span::addNumber(std::vector<int> & toBeAdded) {
-	if (this->_storage.size() + toBeAdded.size() > this->_max)
+void				Span::addNumber(std::vector<int>::iterator _begin, std::vector<int>::iterator _end) {
+	if (this->_storage.size() + std::distance(_begin, _end) > this->_max)
 		throw std::exception();
-	this->_storage.insert(this->_storage.end(), toBeAdded.begin(), toBeAdded.end());
+	this->_storage.insert(this->_storage.end(), _begin, _end);
+	std::sort(_storage.begin(), _storage.end());
 }
 
 unsigned int		Span::shortestSpan(void) const {
@@ -74,16 +78,8 @@ unsigned int		Span::shortestSpan(void) const {
 }
 
 unsigned int		Span::longestSpan(void) const {
-	unsigned int longestSpan = 0;
-
 	if (this->_storage.size() < 2)
 		throw std::exception();
-	for (size_t i = 0; i < this->_storage.size(); i++) {
-		for (size_t j = 0; j < this->_storage.size(); j++) {
-			if (j != i && static_cast<unsigned int>(abs(this->_storage.at(i) - this->_storage.at(j))) > longestSpan)
-				longestSpan = static_cast<unsigned int>(abs(this->_storage.at(i) - this->_storage.at(j)));
-		}
-	}
-	return longestSpan;
+	return (*(_storage.end() - 1) - *(_storage.begin()));
 }
 

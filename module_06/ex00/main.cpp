@@ -6,7 +6,7 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 17:57:19 by lpellier          #+#    #+#             */
-/*   Updated: 2022/01/07 21:00:19 by lpellier         ###   ########.fr       */
+/*   Updated: 2022/01/07 21:02:39 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <climits>
 #include <sstream>
 #include <cfloat>
+#include <stdlib.h>
 #include <iomanip>
 
 // inf +inf -inf inff +inff -inff nan nanf 10 10.0f 10.f 10f 10.0 'c'
@@ -50,12 +51,12 @@ struct typeInfo
 
 std::ostream & operator<<(std::ostream & out, struct typeInfo & src) {
 	out << "debug : ";
-	out << "infinite " << src._infinite << " | ";
-	out << "nan " << src._nan << " | ";
-	out << "decimal " << src._decimal << " | ";
-	out << "float " << src._float << " | ";
-	out << "char " << src._char << " | ";
-	out << "int " << src._int << " | ";
+	out << "infinite " << src._infinite << " | ";
+	out << "nan " << src._nan << " | ";
+	out << "decimal " << src._decimal << " | ";
+	out << "float " << src._float << " | ";
+	out << "char " << src._char << " | ";
+	out << "int " << src._int << " | ";
 	out << "error " << src._error;
 	return (out);
 }
@@ -69,7 +70,7 @@ int main(int ac, char **av) {
 	}
 	std::string str = av[1];
 	info.init(str);
-	// std::cout << info << std::endl;
+	std::cout << info << std::endl;
 
 	if (info._float)
 		str.erase(str.end() - 1);
@@ -84,32 +85,30 @@ int main(int ac, char **av) {
 	// char
 	std::cout << "char : ";
 	if (info._infinite || info._nan || container < CHAR_MIN || container > CHAR_MAX || info._error)
-		std::cout << "Impossible" << std::endl;
+		std::cout << "impossible" << std::endl;
 	else if (!std::isprint(static_cast<char>(container)))
-		std::cout << "Not displayable" << std::endl;
+		std::cout << "Non displayable" << std::endl;
 	else
-		std::cout << static_cast<char>(container) << std::endl;
+		std::cout << '\'' << static_cast<char>(container) << '\'' << std::endl;
 
 	// int
 	std::cout << "int : ";
 	if (info._infinite || info._nan || container < INT_MIN || container > INT_MAX || info._error)
-		std::cout << "Impossible" << std::endl;
+		std::cout << "impossible" << std::endl;
 	else
 		std::cout << static_cast<int>(container) << std::endl;
 
 	// float
 	std::cout << "float : ";
-	if (!(info._infinite || info._nan) && (container < FLT_MIN || container > FLT_MAX || info._error))
-		std::cout << "Impossible" << std::endl;
+	if (!(info._infinite || info._nan) && (container < -FLT_MAX + 1 || container > FLT_MAX || info._error))
+		std::cout << "impossible" << std::endl;
 	else
-		std::cout << static_cast<float>(container) << "f" << std::endl;
+		std::cout << std::setprecision(1) << std::fixed << static_cast<float>(container) << "f" << std::endl;
 
 	// double
 	std::cout << "double : ";
-	if (!(info._infinite || info._nan) && (container < DBL_MIN || container > DBL_MAX || info._error))
-		std::cout << "Impossible" << std::endl;
+	if (!(info._infinite || info._nan) && (container < -DBL_MAX + 1 || container > DBL_MAX || info._error))
+		std::cout << "impossible" << std::endl;
 	else
-		std::cout << static_cast<double>(container) << std::endl;
-
-	std::cout << std::setprecision(4) << static_cast<float>(36) << std::fixed << std::endl;
+		std::cout << std::setprecision(1) << std::fixed << static_cast<double>(container) << std::endl;
 }

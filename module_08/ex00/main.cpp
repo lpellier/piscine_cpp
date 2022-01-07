@@ -6,7 +6,7 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 19:50:05 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/18 20:10:35 by lpellier         ###   ########.fr       */
+/*   Updated: 2022/01/06 16:02:24 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,10 @@ int main() {
 	std::list<int>		testList(10, 0);
 
 	testList.push_back(6);
-	std::cout << easyfind(testList, 7) << std::endl;
+	try {
+		std::cout << easyfind(testList, 7) << std::endl;
+	} catch (std::exception & e) {
+		std::cout << "didn't find requested number" << std::endl;
+	}
+
 }

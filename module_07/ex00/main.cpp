@@ -6,7 +6,7 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:29:23 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/18 17:39:00 by lpellier         ###   ########.fr       */
+/*   Updated: 2022/01/06 15:27:36 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,17 @@ int main(void) {
 		std::string s1 = "first";
 		std::string s2 = "second";
 		std::cout << s1 << " " << s2 << std::endl;
-		std::cout << "min : " << max(s1, s2) << std::endl;	
+		std::cout << "max : " << max(s1, s2) << std::endl;	
 
 		int		i1 = 1;
 		int		i2 = 2;
 		std::cout << i1 << " " << i2 << std::endl;
-		std::cout << "min : " << max(i1, i2) << std::endl;	
+		std::cout << "max : " << max(i1, i2) << std::endl;	
 
 		float	f1 = 1.11;
 		float	f2 = 2.22;
 		std::cout << f1 << " " << f2 << std::endl;
-		std::cout << "min : " << max(f1, f2) << std::endl;	
+		std::cout << "max : " << max(f1, f2) << std::endl;	
 		std::cout << std::endl;
 	}
 	{

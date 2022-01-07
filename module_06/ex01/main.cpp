@@ -6,12 +6,14 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 17:57:19 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/18 15:38:58 by lpellier         ###   ########.fr       */
+/*   Updated: 2022/01/06 15:14:22 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <sstream>
+#include <stdint.h>
+// #include <cstdint>
 #include <iostream>
 
 struct Data {
