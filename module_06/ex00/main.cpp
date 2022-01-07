@@ -6,15 +6,15 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 17:57:19 by lpellier          #+#    #+#             */
-/*   Updated: 2021/10/15 22:40:11 by lpellier         ###   ########.fr       */
+/*   Updated: 2022/01/07 21:00:19 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
 #include <climits>
-#include <cfloat>
 #include <sstream>
+#include <cfloat>
 #include <iomanip>
 
 // inf +inf -inf inff +inff -inff nan nanf 10 10.0f 10.f 10f 10.0 'c'
