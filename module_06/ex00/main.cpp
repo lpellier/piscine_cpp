@@ -6,7 +6,7 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 17:57:19 by lpellier          #+#    #+#             */
-/*   Updated: 2022/01/07 21:02:39 by lpellier         ###   ########.fr       */
+/*   Updated: 2022/01/07 21:30:01 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,42 @@
 
 // inf +inf -inf inff +inff -inff nan nanf 10 10.0f 10.f 10f 10.0 'c'
 
+// errors
+// char -> impossible
+// -inff +inff
+
 bool	isNum(std::string str) {
-	for (int i = 0; str[i]; i++) {
+	int i = 0;
+
+	if (str[i] == '-')
+		i++;
+	while (str[i]) {
 		if (!std::isdigit(str[i]))
 			return false;
+		i++;
 	}
+	return true;
+}
+
+bool	isFloat(std::string str) {
+	int i = 0;
+	int point = 0;
+
+	if (!str.compare("f"))
+		return false;
+	if (!str.compare("inff") || !str.compare("-inff") || !str.compare("+inff") || !str.compare("nanf"))
+		return (true);
+	if (str[i] == '-')
+		i++;
+	while (str[i]) {
+		if (str[i] == '.')
+			point++;
+		if (!std::isdigit(str[i]) && str[i] != 'f' && str[i] != '.')
+			return false;
+		i++;
+	}
+	if (str[i - 1] != 'f' || point > 1)
+		return false;
 	return true;
 }
 
@@ -41,11 +72,12 @@ struct typeInfo
 	void	init(std::string str) {
 		this->_infinite = (!str.compare("inf") || !str.compare("-inf") || !str.compare("+inf") || !str.compare("inff") || !str.compare("-inff") || !str.compare("+inff"));
 		this->_nan = (!str.compare("nan") || !str.compare("nanf"));
-		this->_decimal = (str.find('.') != std::string::npos);
-		this->_float = (str.at(str.length() - 1) == 'f' && str.compare("inf") && str.compare("-inf") && str.compare("+inf"));
-		this->_char = (str.length() == 3 && str.at(0) == '\'' && str.at(2) == '\'');
+		this->_float = isFloat(str);
+		this->_char = (str.length() == 1);
 		this->_int = isNum(str);
-		this->_error = (!this->_infinite && !this->_nan && !this->_decimal && !this->_float && !this->_float && !this->_char && !this->_int);
+		this->_error = (!this->_infinite && !this->_nan && !this->_decimal && !this->_float && !this->_char && !this->_int);
+		if (!str)
+			this->_error = true;
 	}
 };
 
@@ -78,9 +110,10 @@ int main(int ac, char **av) {
 	long double container;
 	std::istringstream ss(str);
 	if (info._char)
-		container = str.at(1);
+		container = str.at(0);
 	else
 		ss >> container;
+	std::cout << container << std::endl;
 
 	// char
 	std::cout << "char : ";
@@ -102,6 +135,10 @@ int main(int ac, char **av) {
 	std::cout << "float : ";
 	if (!(info._infinite || info._nan) && (container < -FLT_MAX + 1 || container > FLT_MAX || info._error))
 		std::cout << "impossible" << std::endl;
+	else if (info._nan)
+		std::cout << "nanf" << std::endl;
+	else if (info._infinite)
+		std::cout << "inff" << std::endl;
 	else
 		std::cout << std::setprecision(1) << std::fixed << static_cast<float>(container) << "f" << std::endl;
 
