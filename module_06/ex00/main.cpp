@@ -6,7 +6,7 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 17:57:19 by lpellier          #+#    #+#             */
-/*   Updated: 2022/01/07 21:30:01 by lpellier         ###   ########.fr       */
+/*   Updated: 2022/01/09 21:09:07 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ struct typeInfo
 {
 	bool	_infinite;
 	bool	_nan;
-	bool	_decimal;
 	bool	_float;
 	bool	_char;
 	bool	_int;
@@ -75,8 +74,8 @@ struct typeInfo
 		this->_float = isFloat(str);
 		this->_char = (str.length() == 1);
 		this->_int = isNum(str);
-		this->_error = (!this->_infinite && !this->_nan && !this->_decimal && !this->_float && !this->_char && !this->_int);
-		if (!str)
+		this->_error = (!this->_infinite && !this->_nan && !this->_float && !this->_char && !this->_int);
+		if (!str.compare(""))
 			this->_error = true;
 	}
 };
@@ -85,7 +84,6 @@ std::ostream & operator<<(std::ostream & out, struct typeInfo & src) {
 	out << "debug : ";
 	out << "infinite " << src._infinite << " | ";
 	out << "nan " << src._nan << " | ";
-	out << "decimal " << src._decimal << " | ";
 	out << "float " << src._float << " | ";
 	out << "char " << src._char << " | ";
 	out << "int " << src._int << " | ";
@@ -113,7 +111,7 @@ int main(int ac, char **av) {
 		container = str.at(0);
 	else
 		ss >> container;
-	std::cout << container << std::endl;
+	// std::cout << container << std::endl;
 
 	// char
 	std::cout << "char : ";
@@ -133,18 +131,14 @@ int main(int ac, char **av) {
 
 	// float
 	std::cout << "float : ";
-	if (!(info._infinite || info._nan) && (container < -FLT_MAX + 1 || container > FLT_MAX || info._error))
+	if (!(info._infinite || info._nan) && ((container > 0 && container < FLT_MIN) || container < -FLT_MAX + 1 || container > FLT_MAX || info._error))
 		std::cout << "impossible" << std::endl;
-	else if (info._nan)
-		std::cout << "nanf" << std::endl;
-	else if (info._infinite)
-		std::cout << "inff" << std::endl;
 	else
 		std::cout << std::setprecision(1) << std::fixed << static_cast<float>(container) << "f" << std::endl;
 
 	// double
 	std::cout << "double : ";
-	if (!(info._infinite || info._nan) && (container < -DBL_MAX + 1 || container > DBL_MAX || info._error))
+	if (!(info._infinite || info._nan) && ((container > 0 && container < DBL_MIN) || container < -DBL_MAX + 1 || container > DBL_MAX || info._error))
 		std::cout << "impossible" << std::endl;
 	else
 		std::cout << std::setprecision(1) << std::fixed << static_cast<double>(container) << std::endl;
