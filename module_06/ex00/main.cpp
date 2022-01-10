@@ -6,13 +6,14 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 17:57:19 by lpellier          #+#    #+#             */
-/*   Updated: 2022/01/09 21:09:07 by lpellier         ###   ########.fr       */
+/*   Updated: 2022/01/10 12:08:00 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
 #include <climits>
+#include <limits>
 #include <sstream>
 #include <cfloat>
 #include <stdlib.h>
@@ -54,13 +55,14 @@ bool	isFloat(std::string str) {
 			return false;
 		i++;
 	}
-	if (str[i - 1] != 'f' || point > 1)
+	if (point > 1)
 		return false;
 	return true;
 }
 
 struct typeInfo
 {
+	bool	_negative;
 	bool	_infinite;
 	bool	_nan;
 	bool	_float;
@@ -69,8 +71,9 @@ struct typeInfo
 	bool	_error;
 
 	void	init(std::string str) {
+		this->_negative = (str.at(0) == '-');
 		this->_infinite = (!str.compare("inf") || !str.compare("-inf") || !str.compare("+inf") || !str.compare("inff") || !str.compare("-inff") || !str.compare("+inff"));
-		this->_nan = (!str.compare("nan") || !str.compare("nanf"));
+		this->_nan = (!str.compare("-nan") || !str.compare("-nanf") || !str.compare("nan") || !str.compare("nanf"));
 		this->_float = isFloat(str);
 		this->_char = (str.length() == 1);
 		this->_int = isNum(str);
@@ -91,6 +94,24 @@ std::ostream & operator<<(std::ostream & out, struct typeInfo & src) {
 	return (out);
 }
 
+long double	str_to_ld(std::string str) {
+	long double ret = 0;
+	int neg = 0;
+	int i = 0;
+
+	if (str.at(0) == '-') {
+		neg = 1;
+		i++;
+	}
+	while (str[i]) {
+		ret = ret * 10 + str[i] - 48;
+		i++;
+	}
+	if (neg)
+		ret *= -1;
+	return ret;
+}
+
 int main(int ac, char **av) {
 	struct typeInfo info;
 
@@ -100,18 +121,23 @@ int main(int ac, char **av) {
 	}
 	std::string str = av[1];
 	info.init(str);
-	std::cout << info << std::endl;
-
-	if (info._float)
-		str.erase(str.end() - 1);
 
 	long double container;
-	std::istringstream ss(str);
-	if (info._char)
+	if (info._nan && info._negative)
+		container = -std::numeric_limits<double>::quiet_NaN();
+	else if (info._nan)
+		container = std::numeric_limits<double>::quiet_NaN();
+	else if (info._infinite && info._negative)
+		container = -std::numeric_limits<double>::infinity();
+	else if (info._infinite)
+		container = std::numeric_limits<double>::infinity();
+	else if (info._char)
 		container = str.at(0);
-	else
+	else {
+		std::istringstream ss(str);
 		ss >> container;
-	// std::cout << container << std::endl;
+	}
+	// std::cout << str << ' ' << container << std::endl;
 
 	// char
 	std::cout << "char : ";
