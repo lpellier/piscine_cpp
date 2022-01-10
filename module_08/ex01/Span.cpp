@@ -64,15 +64,13 @@ void				Span::addNumber(std::vector<int>::iterator _begin, std::vector<int>::ite
 
 unsigned int		Span::shortestSpan(void) const {
 	unsigned int shortestSpan = UINT_MAX;
+	std::vector<int>::const_iterator _end = _storage.end() - 1;
 
 	if (this->_storage.size() < 2)
 		throw std::exception();
-	for (size_t i = 0; i < this->_storage.size(); i++) {
-		for (size_t j = 0; j < this->_storage.size(); j++) {
-			if (j != i && static_cast<unsigned int>(abs(this->_storage.at(i) - this->_storage.at(j))) < shortestSpan) {
-				shortestSpan = static_cast<unsigned int>(abs(this->_storage.at(i) - this->_storage.at(j)));
-			}
-		}
+	for (; _end != _storage.begin(); _end--) {
+		if (static_cast<unsigned int>((*(_end) - *(_end - 1))) < shortestSpan) 
+			shortestSpan = static_cast<unsigned int>((*(_end) - *(_end - 1)));
 	}
 	return shortestSpan;
 }

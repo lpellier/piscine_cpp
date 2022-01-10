@@ -6,7 +6,7 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 18:49:49 by lpellier          #+#    #+#             */
-/*   Updated: 2022/01/06 15:53:35 by lpellier         ###   ########.fr       */
+/*   Updated: 2022/01/10 14:52:08 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ int main(void) {
 	Array<int> test3(10);
 
 	std::cout << "Default value" << std::endl;
-	std::cout << test1[0] << std::endl << std::endl;
+	std::cout << test3[0] << std::endl << std::endl;
 
 	std::cout << "Modifying value from :" << std::endl;
 	std::cout << (int)test2[5] << std::endl;
 	std::cout << "to : " << std::endl;
 	test2[5] = 'a';
-	std::cout << (int)test2[5] << ' ' << test2[5] << std::endl;
+	std::cout << test2[5] << std::endl;
 	std::cout << std::endl;
 	std::cout << "Testing exception" << std::endl;
 	try {
@@ -36,7 +36,7 @@ int main(void) {
 	
 	std::cout << "Testing exception" << std::endl;
 	try {
-		std::cout << test3[11] << std::endl;
+		std::cout << test3[10] << std::endl;
 	} catch (std::exception & e) {
 		std::cout << "Out of bounds" << std::endl;
 	}

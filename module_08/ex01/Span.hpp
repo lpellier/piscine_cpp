@@ -5,6 +5,7 @@
 #include <climits>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 class Span {
 private:

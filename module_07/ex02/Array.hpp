@@ -6,12 +6,13 @@
 /*   By: lpellier <lpellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 18:50:14 by lpellier          #+#    #+#             */
-/*   Updated: 2022/01/06 15:50:41 by lpellier         ###   ########.fr       */
+/*   Updated: 2022/01/10 14:51:35 by lpellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
+#include <stdlib.h>
 
 template<typename T>
 class Array {
@@ -27,7 +28,8 @@ public:
 
 	Array<T>(unsigned int n) : _size(n) {
 		this->_array = new T[n];
-		// need to check default values
+		for (unsigned int i = 0; i < n; i++)
+			this->_array[i] = T();
 	}
 
 	~Array<T>(void) {
@@ -38,7 +40,6 @@ public:
 		this->_array = new T[src._size];
 		for (unsigned int i = 0; i < src._size; i++)
 			this->_array[i] = src._array[i];
-		// need to check default values
 	}
 	
 	Array<T> &	operator=(Array<T> const & src) {
@@ -50,7 +51,7 @@ public:
 	}
 	
 	T &			operator[](unsigned int index) {
-		if (index > this->_size || index < 0)
+		if (index >= this->_size || index < 0)
 			throw std::exception();
 		return this->_array[index];
 	}

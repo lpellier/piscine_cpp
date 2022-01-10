@@ -2,7 +2,7 @@ NAME = test
 
 CC = c++
 
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CFLAGS = -Wall -g3 -Werror -Wextra -std=c++98
 
 SRCS = ./main.cpp \
 		./MutantStack.cpp
