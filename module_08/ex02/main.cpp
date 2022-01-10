@@ -1,4 +1,5 @@
 #include "MutantStack.hpp"
+#include <vector>
 
 int main()
 {
@@ -23,5 +24,30 @@ int main()
 		++it;
 	}
 	std::stack<int> s(mstack);
+
+	{
+		std::vector<float> test_vec(10, 5.5);
+		std::stack<float, std::vector<float> > s2(test_vec);
+		MutantStack<float, std::vector<float> > mstack2(s2);
+		MutantStack<float, std::vector<float> >::iterator it2 = mstack2.begin();
+		MutantStack<float, std::vector<float> >::iterator ite2 = mstack2.end();
+		while (it2 != ite2)
+		{
+			std::cout << *it2 << std::endl;
+			++it2;
+		}
+	}
+	{
+		std::vector<float> test_vec(10, 5.5);
+		std::stack<float, std::vector<float> > s2(test_vec);
+		MutantStack<float, std::vector<float> > mstack2 = s2;
+		MutantStack<float, std::vector<float> >::iterator it2 = mstack2.begin();
+		MutantStack<float, std::vector<float> >::iterator ite2 = mstack2.end();
+		while (it2 != ite2)
+		{
+			std::cout << *it2 << std::endl;
+			++it2;
+		}
+	}
 	return 0;
 }
